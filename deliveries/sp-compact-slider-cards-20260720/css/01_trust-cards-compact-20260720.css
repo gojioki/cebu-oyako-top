@@ -1,0 +1,57 @@
+/* ==========================================================
+   01 信頼カード：SP中央揃え・コンパクト化 2026-07-20
+   追加パッチ（第1便01パッチの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-slider-feature-max:340px;
+  --btv3-slider-feature-gap:8px;
+  --btv3-slider-feature-icon:40px;
+  --btv3-slider-feature-min-height:60px;
+}
+
+@media (max-width:640px){
+  .btv3-hero-features{
+    padding-top:12px;
+    padding-bottom:8px;
+  }
+  .btv3-hero-features .btv3-container{
+    width:min(calc(100% - 26px),var(--btv3-slider-feature-max));
+    margin-right:auto;
+    margin-left:auto;
+  }
+  .btv3-feature-grid{
+    gap:var(--btv3-slider-feature-gap);
+  }
+  .btv3-feature-card{
+    min-height:var(--btv3-slider-feature-min-height);
+    gap:9px;
+    padding:7px 10px;
+  }
+  .btv3-icon-circle{
+    width:var(--btv3-slider-feature-icon);
+    height:var(--btv3-slider-feature-icon);
+  }
+  .btv3-icon-circle svg{
+    width:21px;
+    height:21px;
+  }
+  .btv3-feature-card__head{
+    gap:7px;
+    margin-bottom:2px;
+  }
+  .btv3-feature-card__value{
+    font-size:21px;
+  }
+  .btv3-feature-card__value.btv3-is-long{
+    font-size:17px;
+  }
+  .btv3-feature-card__label{
+    font-size:12.5px;
+  }
+  .btv3-feature-card em{
+    margin-top:1px;
+    font-size:11px;
+    line-height:1.45;
+  }
+}
+

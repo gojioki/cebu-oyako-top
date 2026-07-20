@@ -1,0 +1,43 @@
+/* ==========================================================
+   11 最終CTA：SP補助文字・余白調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b3-final-sp-body:13px;
+  --btv3-b3-final-sp-note:13px;
+}
+
+@media (max-width:760px){
+  .btv3-finalcta__title{
+    text-wrap:balance;
+  }
+  .btv3-finalcta__choice{
+    min-height:140px;
+  }
+}
+
+@media (max-width:480px){
+  .btv3-finalcta__eyebrow{
+    font-size:11.5px;
+    line-height:1.55;
+  }
+  .btv3-finalcta__lead{
+    font-size:14px;
+    line-height:1.85;
+  }
+  .btv3-finalcta__choice-label{
+    font-size:11.5px;
+  }
+  .btv3-finalcta__choice-description{
+    font-size:var(--btv3-b3-final-sp-body);
+    line-height:1.7;
+  }
+  .btv3-finalcta__reassurance{
+    font-size:14px;
+  }
+  .btv3-finalcta__general{
+    font-size:var(--btv3-b3-final-sp-note);
+    line-height:1.8;
+  }
+}
+

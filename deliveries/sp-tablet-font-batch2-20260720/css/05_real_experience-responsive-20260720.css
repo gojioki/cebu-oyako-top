@@ -1,0 +1,86 @@
+/* ==========================================================
+   05 実録：タブレット／スマホ文字・余白調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b2-trip-tablet-max:620px;
+  --btv3-b2-trip-sp-gap:16px;
+}
+
+@media (min-width:641px) and (max-width:960px){
+  .btv3-trip-grid{
+    max-width:var(--btv3-b2-trip-tablet-max);
+  }
+  .btv3-polaroid figcaption{
+    font-size:11.5px;
+    line-height:1.5;
+  }
+  .btv3-trip-list dd{
+    font-size:14px;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-real2{
+    padding-top:38px;
+    padding-bottom:32px;
+  }
+  .btv3-real2 .btv3-section-title{
+    margin-bottom:18px;
+  }
+  .btv3-real2 .btv3-section-title h2{
+    font-size:clamp(22px,6.4vw,27px)!important;
+    line-height:1.5!important;
+    text-wrap:balance;
+  }
+  .btv3-real2 .btv3-section-title p{
+    font-size:14px;
+    line-height:1.75;
+  }
+  .btv3-trip-grid{
+    gap:var(--btv3-b2-trip-sp-gap);
+  }
+  .btv3-trip-card{
+    padding:18px 15px 17px;
+  }
+  .btv3-trip-photos{
+    margin-bottom:13px;
+  }
+  .btv3-polaroid{
+    padding:6px 6px 7px;
+  }
+  .btv3-polaroid img{
+    height:126px;
+  }
+  .btv3-polaroid figcaption{
+    margin-top:5px;
+    font-size:11.5px;
+    line-height:1.5;
+  }
+  .btv3-trip-head{
+    margin:11px 0 10px;
+    gap:8px;
+  }
+  .btv3-trip-head b{
+    font-size:15px;
+    line-height:1.5;
+  }
+  .btv3-trip-badge{
+    padding:3px 11px;
+    font-size:12px;
+  }
+  .btv3-trip-list{
+    gap:9px;
+  }
+  .btv3-trip-list dt{
+    font-size:13px;
+  }
+  .btv3-trip-list dd{
+    font-size:14px;
+    line-height:1.75;
+  }
+  .btv3-trip-cta{
+    margin-top:24px;
+  }
+}
+

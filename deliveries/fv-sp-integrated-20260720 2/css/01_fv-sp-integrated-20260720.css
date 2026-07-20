@@ -1,0 +1,105 @@
+/* ==========================================================
+   01 FV：スマホLP型・写真全面＋左コピー 2026-07-20
+   追加パッチ（第1便01パッチの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-fv-sp-lp-height:540px;
+  --btv3-fv-sp-lp-copy-width:64%;
+  --btv3-fv-sp-lp-copy-top:40px;
+  --btv3-fv-sp-lp-buttons-bottom:18px;
+  --btv3-fv-sp-lp-photo-position:59% 43%;
+  --btv3-fv-sp-lp-button-shadow:0 8px 20px rgba(0,87,200,.16);
+  --btv3-fv-sp-lp-side-overlay:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.94) 35%,rgba(255,255,255,.67) 55%,rgba(255,255,255,.18) 74%,rgba(255,255,255,0) 100%);
+  --btv3-fv-sp-lp-bottom-overlay:linear-gradient(180deg,rgba(238,250,255,0) 55%,rgba(238,250,255,.78) 78%,rgba(238,250,255,.98) 100%);
+}
+
+@media (max-width:640px){
+  .btv3-hero{
+    min-height:var(--btv3-fv-sp-lp-height);
+    background:var(--btv3-pale);
+  }
+  .btv3-hero__photo{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    margin:0;
+  }
+  .btv3-hero__photo img{
+    object-position:var(--btv3-fv-sp-lp-photo-position);
+    filter:saturate(1.03) brightness(1.03) contrast(1.01);
+  }
+  .btv3-hero::before{
+    inset:0;
+    z-index:2;
+    height:auto;
+    background:var(--btv3-fv-sp-lp-side-overlay),var(--btv3-fv-sp-lp-bottom-overlay);
+  }
+  .btv3-hero__inner{
+    min-height:var(--btv3-fv-sp-lp-height);
+    align-items:flex-start;
+    padding-top:var(--btv3-fv-sp-lp-copy-top);
+    padding-bottom:0;
+  }
+  .btv3-hero__copy{
+    position:static;
+    width:var(--btv3-fv-sp-lp-copy-width);
+    padding:0;
+  }
+  .btv3-hero-title .btv3-hero-title__eyebrow{
+    max-width:210px;
+    margin-bottom:8px;
+    font-size:clamp(20px,5.8vw,25px);
+    line-height:1.45;
+    text-wrap:balance;
+  }
+  .btv3-hero-title span,
+  .btv3-hero-title strong{
+    font-size:clamp(39px,11.8vw,50px);
+    line-height:1.04;
+  }
+  .btv3-hero-sub{
+    max-width:218px;
+    margin-top:15px!important;
+    font-size:13px;
+    line-height:1.65;
+    text-wrap:balance;
+  }
+  .btv3-hero-lead{
+    max-width:210px;
+    margin-top:5px!important;
+    font-size:12.5px;
+    line-height:1.6;
+  }
+  .btv3-hero-buttons{
+    position:absolute;
+    right:0;
+    bottom:var(--btv3-fv-sp-lp-buttons-bottom);
+    left:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:9px;
+  }
+  .btv3-hero-buttons .btv3-btn{
+    min-height:48px;
+    font-size:15px;
+    box-shadow:var(--btv3-fv-sp-lp-button-shadow);
+  }
+}
+
+@media (max-width:390px){
+  .btv3-hero{
+    --btv3-fv-sp-lp-height:525px;
+    --btv3-fv-sp-lp-copy-width:66%;
+    --btv3-fv-sp-lp-copy-top:34px;
+    --btv3-fv-sp-lp-photo-position:60% 43%;
+  }
+  .btv3-hero-title .btv3-hero-title__eyebrow{
+    font-size:20px;
+  }
+  .btv3-hero-title span,
+  .btv3-hero-title strong{
+    font-size:42px;
+  }
+}

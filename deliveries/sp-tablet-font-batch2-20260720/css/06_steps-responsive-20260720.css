@@ -1,0 +1,174 @@
+/* ==========================================================
+   06 ロードマップ：1024px境界・縦一本道品質調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b2-roadmap-tablet-max:820px;
+  --btv3-b2-roadmap-sp-road-width:30px;
+  --btv3-b2-roadmap-dash:#fff;
+  --btv3-b2-roadmap-shadow:0 4px 10px rgba(1,83,200,.10);
+}
+
+/* 1024pxをタブレット範囲に含め、既存の縦一本道を適用 */
+@media (max-width:1024px){
+  .btv3-rm-board{
+    margin-top:20px;
+    padding-left:0;
+  }
+  .btv3-rm-board::before{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:4px;
+    bottom:4px;
+    width:32px;
+    border:3px solid var(--btv3-rm-road-edge);
+    border-radius:16px;
+    background-color:var(--btv3-rm-road);
+    background-image:repeating-linear-gradient(180deg,var(--btv3-b2-roadmap-dash) 0 10px,transparent 10px 22px);
+    background-position:50% 0;
+    background-repeat:no-repeat;
+    background-size:3px 100%;
+    box-shadow:var(--btv3-b2-roadmap-shadow);
+  }
+  .btv3-rm-row,
+  .btv3-rm-row--4,
+  .btv3-rm-row--3{
+    display:flex;
+    height:auto;
+    margin:0 0 14px 60px;
+    padding:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:13px;
+  }
+  .btv3-rm-row--pad{padding-top:0}
+  .btv3-rm-row--rtl{direction:ltr}
+  .btv3-rm-row::before,
+  .btv3-rm-row::after,
+  .btv3-rm-turn{display:none}
+  .btv3-rm-stop{
+    width:auto;
+    min-height:0;
+  }
+  .btv3-rm-stop__no{
+    top:14px;
+    left:-62px;
+    width:30px;
+    height:30px;
+    font-size:13.5px;
+  }
+  .btv3-rm-father{
+    position:static;
+    width:auto;
+    max-width:none;
+    margin:0 44px 2px 0;
+  }
+  .btv3-rm-detour{
+    position:relative;
+    top:auto;
+    left:auto;
+    order:-1;
+    width:auto;
+    margin:0 0 0 28px;
+  }
+  .btv3-rm-detour::before{
+    top:50%;
+    left:-44px;
+    width:44px;
+    height:0;
+    border-top:3px dashed var(--btv3-sn-gold);
+    border-left:0;
+  }
+  .btv3-rm-bg{display:none}
+  .btv3-rm-stop--start::after{right:8px}
+  .btv3-rm-stop--goal::after{right:14px;left:46px}
+  .btv3-rm-stop__time{font-size:11px}
+  .btv3-rm-stop__title{font-size:15.5px}
+  .btv3-rm-stop__desc{font-size:12.5px;line-height:1.65}
+  .btv3-rm-stop__link{font-size:12px}
+}
+
+@media (min-width:641px) and (max-width:1024px){
+  .btv3-rm-board{
+    width:100%;
+    max-width:var(--btv3-b2-roadmap-tablet-max);
+    margin-right:auto;
+    margin-left:auto;
+  }
+}
+
+@media (max-width:640px){
+  #roadmap{
+    padding-top:38px;
+    padding-bottom:30px;
+  }
+  #roadmap .btv3-section-title h2{
+    font-size:clamp(22px,6.4vw,27px)!important;
+    line-height:1.45!important;
+    text-wrap:balance;
+  }
+  #roadmap .btv3-section-title p{
+    font-size:13.5px;
+    line-height:1.7;
+  }
+  .btv3-rm-board::before{
+    left:10px;
+    width:var(--btv3-b2-roadmap-sp-road-width);
+  }
+  .btv3-rm-row,
+  .btv3-rm-row--4,
+  .btv3-rm-row--3{
+    margin-left:55px;
+    gap:11px;
+  }
+  .btv3-rm-stop{
+    gap:4px;
+    padding:13px 12px 12px;
+  }
+  .btv3-rm-stop__no{
+    left:-57px;
+    width:29px;
+    height:29px;
+    font-size:13px;
+  }
+  .btv3-rm-stop__time{
+    font-size:11px;
+  }
+  .btv3-rm-stop__title{
+    font-size:15px;
+    line-height:1.45;
+  }
+  .btv3-rm-stop__desc{
+    font-size:13px;
+    line-height:1.65;
+  }
+  .btv3-rm-stop__link{
+    font-size:12.5px;
+  }
+  .btv3-rm-father{
+    margin-right:22px;
+  }
+  .btv3-rm-father__bubble{
+    font-size:12px;
+    line-height:1.55;
+  }
+  .btv3-rm-father__bubble b{
+    font-size:10.5px;
+  }
+  .btv3-rm-detour{
+    margin-left:22px;
+    padding:10px 11px;
+  }
+  .btv3-rm-detour::before{
+    left:-37px;
+    width:37px;
+  }
+  .btv3-rm-detour__body b{
+    font-size:13px;
+  }
+  .btv3-rm-detour__body span{
+    font-size:12px;
+    line-height:1.6;
+  }
+}

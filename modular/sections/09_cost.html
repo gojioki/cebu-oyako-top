@@ -1,0 +1,284 @@
+<!-- COST CALCULATOR / polished prototype v4 -->
+<section class="btv3-costnav btv3-costcalc" id="cost" aria-labelledby="btv3-costcalc-title">
+  <div class="btv3-container btv3-costnav__inner">
+    <header class="btv3-costnav__head">
+      <p class="btv3-costnav__eyebrow"><span aria-hidden="true">¥</span> BUDGET CHECK</p>
+      <h2 id="btv3-costcalc-title">うちの場合、<span>総額いくら？</span></h2>
+      <p>親1人＋子ども1人を基準に、近い条件を選ぶだけ。<br class="btv3-costnav__pc-only">すべての選択肢を見ながら、費用の目安をすぐ確認できます。</p>
+    </header>
+
+    <div class="btv3-costcalc__mode" role="tablist" aria-label="留学タイプを選ぶ">
+      <button class="btv3-costcalc__mode-tab btv3-is-active" type="button" role="tab" aria-selected="true" aria-controls="btv3-costcalc-parent" id="btv3-costcalc-mode-parent" tabindex="0" data-costcalc-mode="parent">
+        <span class="btv3-costcalc__mode-icon" aria-hidden="true">親子</span>
+        <span><small>保護者が同行</small><b>親子で行く</b></span>
+      </button>
+      <button class="btv3-costcalc__mode-tab" type="button" role="tab" aria-selected="false" aria-controls="btv3-costcalc-junior" id="btv3-costcalc-mode-junior" tabindex="-1" data-costcalc-mode="junior">
+        <span class="btv3-costcalc__mode-icon btv3-costcalc__mode-icon--junior" aria-hidden="true">子ども</span>
+        <span><small>引率・生活管理付き</small><b>ジュニアキャンプ</b></span>
+      </button>
+    </div>
+
+    <div class="btv3-costcalc__mode-panels">
+      <div class="btv3-costcalc__mode-panel btv3-is-active" role="tabpanel" id="btv3-costcalc-parent" aria-labelledby="btv3-costcalc-mode-parent" data-costcalc-mode-panel="parent">
+        <div class="btv3-costcalc__board">
+          <form class="btv3-costcalc__choices" data-costcalc-form>
+            <div class="btv3-costcalc__base">
+              <span aria-hidden="true">基準</span>
+              <p><small>基本の家族構成</small><b>親1人 ＋ 子ども1人</b></p>
+              <em>小学生を想定</em>
+            </div>
+
+            <fieldset class="btv3-costcalc__group">
+              <legend><span>1</span><b>期間</b><small>どのくらい滞在しますか？</small></legend>
+              <div class="btv3-costcalc__options btv3-costcalc__options--weeks">
+                <label><input type="radio" name="btv3-costcalc-weeks" value="1"><span><i aria-hidden="true"></i><b>1週間</b><small>お試し</small></span></label>
+                <label><input type="radio" name="btv3-costcalc-weeks" value="2" checked><span><i aria-hidden="true"></i><b>2週間</b><small>標準</small></span></label>
+                <label><input type="radio" name="btv3-costcalc-weeks" value="3"><span><i aria-hidden="true"></i><b>3週間</b><small>しっかり</small></span></label>
+                <label><input type="radio" name="btv3-costcalc-weeks" value="4"><span><i aria-hidden="true"></i><b>4週間</b><small>じっくり</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="btv3-costcalc__group">
+              <legend><span>2</span><b>親の授業</b><small>保護者も英語を学びますか？</small></legend>
+              <div class="btv3-costcalc__options">
+                <label><input type="radio" name="btv3-costcalc-parent-lesson" value="yes" checked><span><i aria-hidden="true"></i><b>受ける</b><small>親子で学ぶ</small></span></label>
+                <label><input type="radio" name="btv3-costcalc-parent-lesson" value="no"><span><i aria-hidden="true"></i><b>受けない</b><small>子どもを優先</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="btv3-costcalc__group">
+              <legend><span>3</span><b>宿泊</b><small>どこに滞在しますか？</small></legend>
+              <div class="btv3-costcalc__options">
+                <label><input type="radio" name="btv3-costcalc-stay" value="school" checked><span><i aria-hidden="true"></i><b>学校内・提携ホテル</b><small>生活をまとめて任せる</small></span></label>
+                <label><input type="radio" name="btv3-costcalc-stay" value="outside"><span><i aria-hidden="true"></i><b>外部ホテル・コンド</b><small>自己手配・自由度を重視</small></span></label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="btv3-costcalc__result" aria-live="polite" aria-atomic="true">
+            <p class="btv3-costcalc__result-kicker">YOUR ESTIMATE <span>概算・仮</span></p>
+            <h3>あなたの総額目安</h3>
+            <p class="btv3-costcalc__selected" data-costcalc-selected>2週間・親も受講・学校内滞在</p>
+
+            <div class="btv3-costcalc__prices">
+              <div>
+                <span>通常期</span>
+                <p><strong data-costcalc-normal>50〜65</strong><b>万円<sup>仮</sup></b></p>
+              </div>
+              <div class="btv3-costcalc__price-peak">
+                <span>夏休み・繁忙期</span>
+                <p><strong data-costcalc-peak>60〜78</strong><b>万円<sup>仮</sup></b></p>
+              </div>
+            </div>
+
+            <p class="btv3-costcalc__included"><span>総額に含む想定</span>航空券・授業・宿泊・食事・現地支払い・保険</p>
+            <p class="btv3-costcalc__availability" data-costcalc-availability>この条件は、一般的な親子留学パッケージで探しやすい組み合わせです。</p>
+
+            <a class="btv3-costnav__cta btv3-costcalc__primary" href="https://cebu-oyako.com/oyako-school/" data-costcalc-school-link>この条件に対応する学校を見る <span aria-hidden="true">›</span></a>
+            <a class="btv3-costcalc__secondary" href="https://cebu-oyako.com/cost-guide/">費用の詳しい内訳を見る <span aria-hidden="true">›</span></a>
+            <small class="btv3-costcalc__provisional">※選択条件に応じた固定の仮データによる概算です。最新料金の自動取得・正式見積もりではありません。</small>
+          </aside>
+        </div>
+      </div>
+
+      <div class="btv3-costcalc__mode-panel" role="tabpanel" id="btv3-costcalc-junior" aria-labelledby="btv3-costcalc-mode-junior" data-costcalc-mode-panel="junior" hidden>
+        <div class="btv3-costcalc__junior">
+          <div class="btv3-costcalc__junior-copy">
+            <p class="btv3-costcalc__junior-label">SUMMER / SPRING CAMP</p>
+            <h3>子どもだけで参加する<br><span>ジュニアキャンプ</span></h3>
+            <p>日程・対象年齢・学習内容が決まったパッケージ型。親子留学より条件がシンプルなので、募集中のプランから選べます。</p>
+          </div>
+
+          <div class="btv3-costcalc__junior-facts btv3-costcalc__junior-facts--priced">
+            <div><span>対象</span><b>小学生〜高校生</b><small>学校により異なります</small></div>
+            <div><span>期間</span><b>1〜2週間中心</b><small>夏休み・春休み</small></div>
+            <div><span>1週間の総額目安</span><b>35〜45万円<sup>仮</sup></b><small>航空券・引率・授業・滞在を含む想定</small></div>
+            <div><span>2週間の総額目安</span><b>45〜60万円<sup>仮</sup></b><small>航空券・引率・授業・滞在を含む想定</small></div>
+          </div>
+
+          <div class="btv3-costcalc__junior-checks">
+            <b>申し込み前に確認</b>
+            <ul>
+              <li><span aria-hidden="true">✓</span>日本からの引率</li>
+              <li><span aria-hidden="true">✓</span>生活管理・日本語対応</li>
+              <li><span aria-hidden="true">✓</span>WEG申請と航空券の範囲</li>
+            </ul>
+          </div>
+
+          <div class="btv3-costcalc__junior-action">
+            <a class="btv3-costnav__cta" href="https://cebu-oyako.com/oyako-school/">募集中のキャンプを比較する <span aria-hidden="true">›</span></a>
+            <small>※仮の総額目安です。最新の募集日程・対象年齢・金額は比較ページで確認します。</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="btv3-costnav__receipts btv3-costcalc__receipts" aria-labelledby="btv3-costcalc-receipts-title">
+      <div class="btv3-costnav__receipts-intro">
+        <p class="btv3-costnav__receipts-kicker">REAL FAMILY COSTS</p>
+        <h3 id="btv3-costcalc-receipts-title">標準モデルだけでは分からない、<br><span>4人家族のリアル。</span></h3>
+        <p>大人2名・子ども1名・幼児1名。外部コンドミニアムで実際に過ごした3回分です。</p>
+        <a href="https://cebu-oyako.com/cebu-ryugaku-cost-1month/">請求書ベースの実費を見る <span aria-hidden="true">›</span></a>
+      </div>
+
+      <div class="btv3-costnav__slider" data-costnav-slider>
+        <div class="btv3-costnav__slide btv3-is-active" data-costnav-slide="0">
+          <div class="btv3-costnav__receipt">
+            <div class="btv3-costnav__receipt-top"><span>TRIP 01</span><b>GW・16日間</b></div>
+            <dl>
+              <div><dt>家族構成</dt><dd>大人2・子ども1・幼児1</dd></div>
+              <div><dt>子どもの授業</dt><dd>9日間・1日4時間</dd></div>
+              <div><dt>滞在</dt><dd>外部コンドミニアム</dd></div>
+            </dl>
+            <p><small>家族の総額</small><strong>約65万円</strong></p>
+            <em>短期のため授業1時間あたりは高め</em>
+          </div>
+        </div>
+        <div class="btv3-costnav__slide" data-costnav-slide="1" hidden>
+          <div class="btv3-costnav__receipt">
+            <div class="btv3-costnav__receipt-top"><span>TRIP 02</span><b>夏・30日間</b></div>
+            <dl>
+              <div><dt>家族構成</dt><dd>大人2・子ども1・幼児1</dd></div>
+              <div><dt>子どもの授業</dt><dd>24日間・1日4時間</dd></div>
+              <div><dt>滞在</dt><dd>ペントハウス</dd></div>
+            </dl>
+            <p><small>家族の総額</small><strong>約93.2万円</strong></p>
+            <em>1か月留学の費用構造が分かる回</em>
+          </div>
+        </div>
+        <div class="btv3-costnav__slide" data-costnav-slide="2" hidden>
+          <div class="btv3-costnav__receipt">
+            <div class="btv3-costnav__receipt-top"><span>TRIP 03</span><b>年末年始・31日間</b></div>
+            <dl>
+              <div><dt>家族構成</dt><dd>大人2・子ども1・幼児1</dd></div>
+              <div><dt>子どもの授業</dt><dd>25日間・1日4時間</dd></div>
+              <div><dt>滞在</dt><dd>ペントハウス</dd></div>
+            </dl>
+            <p><small>家族の総額</small><strong>約97.3万円</strong></p>
+            <em>繁忙期＋高グレードの部屋を利用</em>
+          </div>
+        </div>
+
+        <div class="btv3-costnav__slider-nav">
+          <button type="button" data-costnav-prev aria-label="前の実費を見る">‹</button>
+          <div class="btv3-costnav__dots" role="group" aria-label="実費データを選ぶ">
+            <button class="btv3-is-active" type="button" data-costnav-dot="0" aria-label="GWの実費" aria-current="true"></button>
+            <button type="button" data-costnav-dot="1" aria-label="夏の実費" aria-current="false"></button>
+            <button type="button" data-costnav-dot="2" aria-label="年末年始の実費" aria-current="false"></button>
+          </div>
+          <button type="button" data-costnav-next aria-label="次の実費を見る">›</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="btv3-costnav__disclaimer">※「仮」の金額はプロトタイプ用の概算です。正式版では各校の公式料金、航空券、保険、現地支払い費用を同じ条件で再計算します。</p>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.querySelector('.btv3-costcalc');
+  if (!root || root.dataset.ready === 'true') return;
+  root.dataset.ready = 'true';
+
+  const modeTabs = [...root.querySelectorAll('[data-costcalc-mode]')];
+  const modePanels = [...root.querySelectorAll('[data-costcalc-mode-panel]')];
+
+  const activateMode = (tab, focus = false) => {
+    const key = tab.dataset.costcalcMode;
+    modeTabs.forEach((item) => {
+      const active = item === tab;
+      item.classList.toggle('btv3-is-active', active);
+      item.setAttribute('aria-selected', String(active));
+      item.tabIndex = active ? 0 : -1;
+    });
+    modePanels.forEach((panel) => {
+      const active = panel.dataset.costcalcModePanel === key;
+      panel.classList.toggle('btv3-is-active', active);
+      panel.hidden = !active;
+    });
+    if (focus) tab.focus();
+  };
+
+  modeTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateMode(tab));
+    tab.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % modeTabs.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + modeTabs.length) % modeTabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = modeTabs.length - 1;
+      activateMode(modeTabs[next], true);
+    });
+  });
+
+  const estimates = {
+    '1-yes-school': { normal:'40〜55', peak:'48〜65', note:'短期の親子パッケージ。航空券など固定費の割合が高めです。' },
+    '1-no-school': { normal:'35〜48', peak:'43〜58', note:'親の授業なしに対応する学校は限られます。' },
+    '1-yes-outside': { normal:'38〜52', peak:'46〜62', note:'短期の外部滞在は、宿泊の最低泊数や移動費も確認が必要です。' },
+    '1-no-outside': { normal:'33〜45', peak:'40〜55', note:'斉藤家に近い形ですが、短期対応・通学可能な学校は少数です。' },
+    '2-yes-school': { normal:'50〜65', peak:'60〜78', note:'一般的な2週間の親子パッケージで探しやすい組み合わせです。' },
+    '2-no-school': { normal:'43〜57', peak:'52〜68', note:'親の授業なしを選べる学校に絞って比較する必要があります。' },
+    '2-yes-outside': { normal:'46〜61', peak:'56〜72', note:'親子とも通学でき、外部滞在を認める学校が対象です。' },
+    '2-no-outside': { normal:'39〜52', peak:'48〜63', note:'費用は調整しやすい一方、対応校と生活管理の確認が重要です。' },
+    '3-yes-school': { normal:'62〜79', peak:'74〜92', note:'学習量と家族生活のバランスを取りやすい期間です。' },
+    '3-no-school': { normal:'52〜68', peak:'63〜80', note:'親は付き添いに専念。子どもだけ受講可能な学校が対象です。' },
+    '3-yes-outside': { normal:'57〜73', peak:'68〜85', note:'長めの外部滞在では、通学距離と仕事環境も比較材料になります。' },
+    '3-no-outside': { normal:'47〜62', peak:'57〜74', note:'自由度は高い一方、食事・移動・清掃を家族で管理します。' },
+    '4-yes-school': { normal:'75〜95', peak:'88〜110', note:'親子とも本格的に学ぶ1か月モデル。学校・部屋差が大きくなります。' },
+    '4-no-school': { normal:'60〜75', peak:'72〜90', note:'子どもの学習を中心に、親は生活と体調管理を支えるモデルです。' },
+    '4-yes-outside': { normal:'65〜85', peak:'78〜100', note:'親子で通学しながら、外部滞在の自由度も確保する形です。' },
+    '4-no-outside': { normal:'50〜65', peak:'62〜80', note:'斉藤家に近いモデル。宿泊グレードによる差が特に大きくなります。' }
+  };
+
+  const form = root.querySelector('[data-costcalc-form]');
+  const normal = root.querySelector('[data-costcalc-normal]');
+  const peak = root.querySelector('[data-costcalc-peak]');
+  const selected = root.querySelector('[data-costcalc-selected]');
+  const availability = root.querySelector('[data-costcalc-availability]');
+  const schoolLink = root.querySelector('[data-costcalc-school-link]');
+
+  const labelMap = {
+    yes:'親も受講', no:'親は受講なし',
+    school:'学校内滞在', outside:'外部滞在'
+  };
+
+  const updateEstimate = () => {
+    const data = new FormData(form);
+    const weeks = data.get('btv3-costcalc-weeks');
+    const parent = data.get('btv3-costcalc-parent-lesson');
+    const stay = data.get('btv3-costcalc-stay');
+    const estimate = estimates[`${weeks}-${parent}-${stay}`];
+    normal.textContent = estimate.normal;
+    peak.textContent = estimate.peak;
+    selected.textContent = `${weeks}週間・${labelMap[parent]}・${labelMap[stay]}`;
+    availability.textContent = estimate.note;
+    schoolLink.href = `https://cebu-oyako.com/oyako-school/?weeks=${weeks}&parent_lesson=${parent}&stay=${stay}`;
+  };
+
+  form.addEventListener('change', updateEstimate);
+  updateEstimate();
+
+  const slides = [...root.querySelectorAll('[data-costnav-slide]')];
+  const dots = [...root.querySelectorAll('[data-costnav-dot]')];
+  let current = 0;
+  const activateSlide = (index) => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === current;
+      slide.classList.toggle('btv3-is-active', active);
+      slide.hidden = !active;
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === current;
+      dot.classList.toggle('btv3-is-active', active);
+      dot.setAttribute('aria-current', String(active));
+    });
+  };
+  root.querySelector('[data-costnav-prev]')?.addEventListener('click', () => activateSlide(current - 1));
+  root.querySelector('[data-costnav-next]')?.addEventListener('click', () => activateSlide(current + 1));
+  dots.forEach((dot) => dot.addEventListener('click', () => activateSlide(Number(dot.dataset.costnavDot))));
+})();
+</script>

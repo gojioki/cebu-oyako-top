@@ -1,0 +1,10 @@
+downloads/
+*_統合版.html
+_archive/
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+~$*
+.claude/settings.local.json
+CLAUDE.local.md

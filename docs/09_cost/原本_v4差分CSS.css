@@ -1,0 +1,147 @@
+@import url("../cost-section-draft/09_cost_draft.css");
+
+/* ==========================================================
+   COST CALCULATOR polished prototype v4
+   Original visual language is inherited from prototype v1.
+   ========================================================== */
+:root{
+  --btv3-costcalc-deep:#103b72;
+  --btv3-costcalc-blue:#0759bd;
+  --btv3-costcalc-sky:#09a5cf;
+  --btv3-costcalc-pale:#edf8ff;
+  --btv3-costcalc-mint:#e9faf5;
+  --btv3-costcalc-yellow:#ffc51b;
+  --btv3-costcalc-orange:#ffb21a;
+  --btv3-costcalc-white:#fff;
+  --btv3-costcalc-line:#d6e8f5;
+  --btv3-costcalc-muted:#5b6f87;
+  --btv3-costcalc-soft:#f8fcff;
+  --btv3-costcalc-peak:#fff5d4;
+  --btv3-costcalc-good:#188c75;
+  --btv3-costcalc-shadow:0 18px 48px rgba(19,75,139,.13);
+  --btv3-costcalc-focus:rgba(7,89,189,.28);
+  --btv3-costcalc-blue-soft:rgba(7,89,189,.08);
+  --btv3-costcalc-yellow-soft:rgba(255,197,27,.18);
+}
+
+.btv3-costcalc__mode{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:min(760px,100%);margin:0 auto 14px;padding:8px;border:1px solid var(--btv3-costcalc-line);border-radius:18px;background:var(--btv3-costcalc-pale)}
+.btv3-costcalc__mode-tab{display:flex;align-items:center;justify-content:center;gap:13px;min-height:76px;padding:10px 20px;border:0;border-radius:13px;background:transparent;color:var(--btv3-costcalc-muted);cursor:pointer;transition:.2s ease}
+.btv3-costcalc__mode-tab:hover{background:var(--btv3-costcalc-white);color:var(--btv3-costcalc-blue)}
+.btv3-costcalc__mode-tab.btv3-is-active{background:var(--btv3-costcalc-white);box-shadow:0 7px 18px var(--btv3-costcalc-blue-soft);color:var(--btv3-costcalc-deep)}
+.btv3-costcalc__mode-tab:focus-visible{outline:3px solid var(--btv3-costcalc-focus);outline-offset:2px}
+.btv3-costcalc__mode-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--btv3-costcalc-blue);color:var(--btv3-costcalc-white);font-size:10px;font-weight:850}
+.btv3-costcalc__mode-icon--junior{background:var(--btv3-costcalc-sky)}
+.btv3-costcalc__mode-tab small,.btv3-costcalc__mode-tab b{display:block;text-align:left}
+.btv3-costcalc__mode-tab small{font-size:10px;font-weight:700;letter-spacing:.04em}
+.btv3-costcalc__mode-tab b{margin-top:1px;font-size:17px}
+.btv3-costcalc__mode-panel[hidden]{display:none}
+.btv3-costcalc__mode-panel.btv3-is-active{animation:btv3-costcalc-enter .26s ease}
+.btv3-costnav__slide.btv3-is-active{animation:btv3-costnav-slide .25s ease}
+.btv3-costnav__dots button.btv3-is-active{width:22px;background:var(--btv3-costnav-blue)}
+@keyframes btv3-costcalc-enter{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+.btv3-costcalc__board{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(360px,.7fr);overflow:hidden;border:1px solid var(--btv3-costcalc-line);border-radius:24px;background:var(--btv3-costcalc-white);box-shadow:var(--btv3-costcalc-shadow)}
+.btv3-costcalc__choices{padding:34px 36px 38px;background:linear-gradient(160deg,var(--btv3-costcalc-white),var(--btv3-costcalc-soft))}
+.btv3-costcalc__base{display:flex;align-items:center;gap:12px;margin-bottom:25px;padding:13px 16px;border:1px solid var(--btv3-costcalc-line);border-radius:12px;background:var(--btv3-costcalc-pale)}
+.btv3-costcalc__base > span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--btv3-costcalc-blue);color:var(--btv3-costcalc-white);font-size:11px;font-weight:850}
+.btv3-costcalc__base p{margin:0!important;line-height:1.4}
+.btv3-costcalc__base small,.btv3-costcalc__base b{display:block}
+.btv3-costcalc__base small{color:var(--btv3-costcalc-muted);font-size:9px;font-weight:700;letter-spacing:.06em}
+.btv3-costcalc__base b{color:var(--btv3-costcalc-deep);font-size:15px}
+.btv3-costcalc__base em{margin-left:auto;padding:4px 9px;border-radius:999px;background:var(--btv3-costcalc-yellow);color:var(--btv3-costcalc-deep);font-size:10px;font-style:normal;font-weight:800}
+.btv3-costcalc__group{min-width:0;margin:0 0 24px;padding:0;border:0}
+.btv3-costcalc__group:last-child{margin-bottom:0}
+.btv3-costcalc__group legend{display:flex;align-items:center;gap:8px;width:100%;margin-bottom:10px;padding:0;color:var(--btv3-costcalc-deep)}
+.btv3-costcalc__group legend > span{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;background:var(--btv3-costcalc-blue);color:var(--btv3-costcalc-white);font-size:10px;font-weight:850}
+.btv3-costcalc__group legend b{font-size:15px}
+.btv3-costcalc__group legend small{color:var(--btv3-costcalc-muted);font-size:10px;font-weight:500}
+.btv3-costcalc__options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.btv3-costcalc__options--weeks{grid-template-columns:repeat(4,minmax(0,1fr))}
+.btv3-costcalc__options label{display:block;min-width:0;cursor:pointer}
+.btv3-costcalc__options input{position:absolute;opacity:0;pointer-events:none}
+.btv3-costcalc__options label > span{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;min-height:62px;padding:9px 12px;border:1px solid var(--btv3-costcalc-line);border-radius:12px;background:var(--btv3-costcalc-white);color:var(--btv3-costcalc-muted);text-align:left;transition:.18s ease}
+.btv3-costcalc__options label > span i{flex:none;display:grid;place-items:center;width:18px;height:18px;border:2px solid var(--btv3-costcalc-line);border-radius:50%;background:var(--btv3-costcalc-white)}
+.btv3-costcalc__options label > span b,.btv3-costcalc__options label > span small{display:block}
+.btv3-costcalc__options label > span b{color:var(--btv3-costcalc-deep);font-size:12px;line-height:1.35}
+.btv3-costcalc__options label > span small{font-size:9px;line-height:1.35}
+.btv3-costcalc__options input:checked + span{border-color:var(--btv3-costcalc-blue);background:var(--btv3-costcalc-pale);box-shadow:0 5px 13px var(--btv3-costcalc-blue-soft);color:var(--btv3-costcalc-blue)}
+.btv3-costcalc__options input:checked + span i{border-color:var(--btv3-costcalc-blue);background:var(--btv3-costcalc-blue)}
+.btv3-costcalc__options input:checked + span i::after{content:"✓";color:var(--btv3-costcalc-white);font-size:10px;font-style:normal;font-weight:900;line-height:1}
+.btv3-costcalc__options input:focus-visible + span{outline:3px solid var(--btv3-costcalc-focus);outline-offset:2px}
+.btv3-costcalc__options label:hover > span{border-color:var(--btv3-costcalc-sky)}
+
+.btv3-costcalc__result{display:flex;flex-direction:column;justify-content:center;padding:38px 34px;background:linear-gradient(155deg,var(--btv3-costcalc-deep),var(--btv3-costcalc-blue));color:var(--btv3-costcalc-white)}
+.btv3-costcalc__result-kicker{display:flex;align-items:center;gap:8px;margin:0 0 5px!important;color:var(--btv3-costcalc-yellow);font-size:10px;font-weight:850;letter-spacing:.15em}
+.btv3-costcalc__result-kicker span{padding:3px 7px;border:1px solid var(--btv3-costcalc-yellow);border-radius:999px;color:var(--btv3-costcalc-white);font-size:8px;letter-spacing:.06em}
+.btv3-costcalc__result h3{margin:0 0 7px!important;color:var(--btv3-costcalc-white);font-size:25px;font-weight:750}
+.btv3-costcalc__selected{margin:0 0 18px!important;color:var(--btv3-costcalc-white);font-size:12px;font-weight:650;opacity:.82}
+.btv3-costcalc__prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.btv3-costcalc__prices > div{padding:13px 11px;border:1px solid var(--btv3-costcalc-white);border-radius:11px;background:var(--btv3-costcalc-blue-soft)}
+.btv3-costcalc__prices .btv3-costcalc__price-peak{border-color:var(--btv3-costcalc-yellow);background:var(--btv3-costcalc-yellow-soft)}
+.btv3-costcalc__prices span{display:block;margin-bottom:5px;font-size:9px;font-weight:750;opacity:.85}
+.btv3-costcalc__prices p{display:flex;align-items:flex-end;margin:0!important;line-height:1}
+.btv3-costcalc__prices strong{font-size:24px;letter-spacing:-.04em}
+.btv3-costcalc__prices b{padding:0 0 2px 3px;font-size:11px}
+.btv3-costcalc__prices sup,.btv3-costcalc__junior-facts sup{margin-left:3px;color:var(--btv3-costcalc-yellow);font-size:7px;font-weight:850;vertical-align:super}
+.btv3-costcalc__included{margin:0 0 10px!important;padding:11px 12px;border-radius:9px;background:var(--btv3-costcalc-white);color:var(--btv3-costcalc-deep);font-size:10px;line-height:1.65}
+.btv3-costcalc__included span{display:block;color:var(--btv3-costcalc-blue);font-size:9px;font-weight:850}
+.btv3-costcalc__availability{min-height:42px;margin:0 0 17px!important;color:var(--btv3-costcalc-white);font-size:10px;line-height:1.7;opacity:.86}
+.btv3-costcalc__primary{flex:none;margin-bottom:8px}
+.btv3-costcalc__secondary{display:flex;align-items:center;justify-content:center;gap:5px;color:var(--btv3-costcalc-white)!important;font-size:11px;font-weight:750;text-decoration:none!important}
+.btv3-costcalc__secondary span{font-size:17px}
+.btv3-costcalc__provisional{display:block;margin-top:13px;color:var(--btv3-costcalc-white);font-size:8px;line-height:1.6;text-align:center;opacity:.65}
+
+.btv3-costcalc__junior{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;padding:42px;border:1px solid var(--btv3-costcalc-line);border-radius:24px;background:linear-gradient(135deg,var(--btv3-costcalc-white),var(--btv3-costcalc-pale) 58%,var(--btv3-costcalc-peak));box-shadow:var(--btv3-costcalc-shadow)}
+.btv3-costcalc__junior-copy{grid-row:span 2;align-self:center}
+.btv3-costcalc__junior-label{margin:0 0 7px!important;color:var(--btv3-costcalc-blue);font-size:10px;font-weight:850;letter-spacing:.13em}
+.btv3-costcalc__junior-copy h3{margin:0 0 12px!important;color:var(--btv3-costcalc-deep);font-size:clamp(27px,3vw,38px);font-weight:750;line-height:1.4}
+.btv3-costcalc__junior-copy h3 span{color:var(--btv3-costcalc-sky)}
+.btv3-costcalc__junior-copy > p:last-child{margin:0!important;color:var(--btv3-costcalc-muted);font-size:12px;line-height:1.9}
+.btv3-costcalc__junior-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.btv3-costcalc__junior-facts--priced{grid-template-columns:repeat(2,1fr)}
+.btv3-costcalc__junior-facts div{padding:14px 10px;border:1px solid var(--btv3-costcalc-line);border-radius:12px;background:var(--btv3-costcalc-white);text-align:center}
+.btv3-costcalc__junior-facts span,.btv3-costcalc__junior-facts b,.btv3-costcalc__junior-facts small{display:block}
+.btv3-costcalc__junior-facts span{color:var(--btv3-costcalc-blue);font-size:9px;font-weight:850}
+.btv3-costcalc__junior-facts b{margin:4px 0 2px;color:var(--btv3-costcalc-deep);font-size:13px}
+.btv3-costcalc__junior-facts sup{color:var(--btv3-costcalc-blue)}
+.btv3-costcalc__junior-facts small{color:var(--btv3-costcalc-muted);font-size:8px}
+.btv3-costcalc__junior-checks{padding:15px 18px;border-radius:12px;background:var(--btv3-costcalc-white)}
+.btv3-costcalc__junior-checks > b{display:block;margin-bottom:8px;color:var(--btv3-costcalc-deep);font-size:12px}
+.btv3-costcalc__junior-checks ul{display:flex;flex-wrap:wrap;gap:7px 14px;margin:0!important;padding:0;list-style:none}
+.btv3-costcalc__junior-checks li{color:var(--btv3-costcalc-muted);font-size:10px;font-weight:650}
+.btv3-costcalc__junior-checks li span{color:var(--btv3-costcalc-good);font-weight:900}
+.btv3-costcalc__junior-action{grid-column:2}
+.btv3-costcalc__junior-action small{display:block;margin-top:8px;color:var(--btv3-costcalc-muted);font-size:8px;text-align:center}
+.btv3-costcalc__receipts{margin-top:32px}
+
+@media (max-width:900px){
+  .btv3-costcalc__board{grid-template-columns:1fr}
+  .btv3-costcalc__result{padding:34px}
+  .btv3-costcalc__junior{grid-template-columns:1fr}
+  .btv3-costcalc__junior-copy{grid-row:auto}
+  .btv3-costcalc__junior-action{grid-column:auto}
+}
+
+@media (max-width:640px){
+  .btv3-costcalc__mode{grid-template-columns:1fr;gap:5px;padding:6px}
+  .btv3-costcalc__mode-tab{justify-content:flex-start;min-height:58px;padding:8px 13px}
+  .btv3-costcalc__mode-icon{width:35px;height:35px}
+  .btv3-costcalc__choices{padding:24px 17px 28px}
+  .btv3-costcalc__base{align-items:flex-start}
+  .btv3-costcalc__base em{display:none}
+  .btv3-costcalc__group legend{align-items:flex-start;flex-wrap:wrap}
+  .btv3-costcalc__group legend small{width:calc(100% - 31px);margin-left:31px}
+  .btv3-costcalc__options--weeks{grid-template-columns:repeat(2,1fr)}
+  .btv3-costcalc__options{grid-template-columns:1fr}
+  .btv3-costcalc__options label > span{justify-content:flex-start;min-height:56px}
+  .btv3-costcalc__result{padding:28px 19px}
+  .btv3-costcalc__prices{grid-template-columns:1fr}
+  .btv3-costcalc__junior{padding:28px 18px}
+  .btv3-costcalc__junior-facts{grid-template-columns:1fr}
+  .btv3-costcalc__junior-facts div{display:grid;grid-template-columns:72px 1fr;align-items:center;text-align:left}
+  .btv3-costcalc__junior-facts small{grid-column:2}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .btv3-costcalc__mode-panel,.btv3-costcalc__mode-tab,.btv3-costcalc__options label > span{animation:none!important;transition:none!important}
+}
