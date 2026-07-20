@@ -3793,3 +3793,1497 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 /* ==========================================================
    ver20: FINAL CTA ここまで
    ========================================================== */
+
+
+/* ##########################################################
+   ver21 レスポンシブ調整一式（SP/タブレット対応）追記ここから
+   出典: deliveries/responsive-current-state-20260720-2227
+   適用日: 2026-07-21 / 順序=batch1→batch2→batch3→fv→compact-sliders
+   ########################################################## */
+
+/* ---------- [01/14] 出典: batch1: 01_fv_trust_mother
+   file: work/batch1/css/01_fv_trust_mother-responsive-20260720.css ---------- */
+/* ==========================================================
+   01 FV・信頼帯：タブレット／スマホ品質調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b1-hero-tablet-height:410px;
+  --btv3-b1-hero-sp-photo-height:240px;
+  --btv3-b1-hero-sp-gap:28px;
+  --btv3-b1-feature-sp-min-height:68px;
+}
+
+/* 641〜960px：PCの写真＋コピー構図を保ったタブレット版 */
+@media (min-width:641px) and (max-width:960px){
+  .btv3-hero{
+    min-height:var(--btv3-b1-hero-tablet-height);
+  }
+  .btv3-hero::before{
+    inset:0;
+    height:auto;
+    background:
+      linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.94) 38%,rgba(255,255,255,.58) 54%,rgba(255,255,255,.08) 72%,rgba(255,255,255,0) 100%),
+      radial-gradient(circle at 22% 18%,rgba(255,196,0,.12),transparent 16%);
+  }
+  .btv3-hero__photo{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    width:70%;
+    min-width:0;
+    height:auto;
+    margin-top:0;
+  }
+  .btv3-hero__photo img{
+    object-position:62% 43%;
+  }
+  .btv3-hero__inner{
+    min-height:var(--btv3-b1-hero-tablet-height);
+    padding:0;
+  }
+  .btv3-hero__copy{
+    width:59%;
+    padding:0;
+    transform:none;
+  }
+  .btv3-hero-title .btv3-hero-title__eyebrow{
+    font-size:clamp(25px,3.45vw,31px);
+    line-height:1.35;
+  }
+  .btv3-hero-title span,
+  .btv3-hero-title strong{
+    font-size:clamp(48px,6.7vw,58px);
+  }
+  .btv3-hero-sub{
+    margin-top:13px!important;
+    font-size:16px;
+  }
+  .btv3-hero-lead{
+    font-size:15px;
+    letter-spacing:.025em;
+  }
+  .btv3-hero-buttons{
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:10px;
+  }
+  .btv3-btn{
+    width:100%;
+    min-width:0;
+    padding-right:10px;
+    padding-left:10px;
+    gap:6px;
+    font-size:14px;
+    white-space:nowrap;
+  }
+}
+
+/* 640px以下：写真の存在感を戻し、FV全体を圧縮 */
+@media (max-width:640px){
+  .btv3-hero::before{
+    inset:0 0 auto;
+    height:var(--btv3-b1-hero-sp-photo-height);
+    background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.48));
+  }
+  .btv3-hero__photo{
+    height:var(--btv3-b1-hero-sp-photo-height);
+    margin-top:0;
+  }
+  .btv3-hero__photo img{
+    object-position:62% 42%;
+    filter:saturate(1.04) brightness(1.02) contrast(1.01);
+  }
+  .btv3-hero__inner{
+    padding-top:var(--btv3-b1-hero-sp-gap);
+  }
+  .btv3-hero__copy{
+    transform:none;
+  }
+  .btv3-hero-title .btv3-hero-title__eyebrow{
+    margin-bottom:5px;
+    font-size:clamp(23px,7.2vw,28px);
+    line-height:1.4;
+  }
+  .btv3-hero-title span,
+  .btv3-hero-title strong{
+    font-size:clamp(44px,13.8vw,56px);
+    line-height:1.04;
+  }
+  .btv3-hero-sub{
+    margin-top:13px!important;
+    font-size:16px;
+    line-height:1.55;
+  }
+  .btv3-hero-lead{
+    margin-bottom:10px!important;
+    font-size:15px;
+    line-height:1.55;
+    letter-spacing:.02em;
+  }
+  .btv3-hero-buttons{
+    gap:10px;
+  }
+  .btv3-btn{
+    min-height:50px;
+    font-size:16px;
+  }
+  .btv3-hero-features{
+    padding-top:16px;
+  }
+  .btv3-feature-grid{
+    gap:10px;
+  }
+  .btv3-feature-card{
+    min-height:var(--btv3-b1-feature-sp-min-height);
+    align-items:center;
+    padding:9px 12px;
+  }
+  .btv3-feature-card__value{
+    font-size:23px;
+  }
+  .btv3-feature-card__value.btv3-is-long{
+    font-size:19px;
+  }
+  .btv3-feature-card em{
+    font-size:12.5px;
+    line-height:1.5;
+  }
+  .btv3-mother-note__inner span{
+    font-size:13.5px;
+    line-height:1.65;
+  }
+}
+
+@media (max-width:430px){
+  .btv3-hero{
+    --btv3-b1-hero-sp-photo-height:220px;
+  }
+}
+
+/* ---------- [02/14] 出典: batch1: 02_front_navigation
+   file: work/batch1/css/02_front_navigation-responsive-20260720.css ---------- */
+/* ==========================================================
+   02 上段カード・学校バナー：SP品質調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b1-upper-sp-media:108px;
+  --btv3-b1-article-sp-media:124px;
+  --btv3-b1-upper-sp-gap:11px;
+  --btv3-b1-school-sp-height:226px;
+}
+
+@media (max-width:640px){
+  .btv3-upper{
+    padding-top:18px;
+  }
+  .btv3-upper-grid{
+    gap:28px;
+  }
+  .btv3-line-title{
+    font-size:19px!important;
+    white-space:normal;
+  }
+  .btv3-line-title::after{
+    min-width:24px;
+    margin-left:8px;
+  }
+  .btv3-block-intro{
+    margin-bottom:13px!important;
+    font-size:13px;
+    line-height:1.7;
+  }
+  .btv3-recommend-grid,
+  .btv3-article-grid{
+    gap:var(--btv3-b1-upper-sp-gap);
+  }
+
+  /* 不安カード：イラスト左＋本文右の横長カード */
+  .btv3-small-card{
+    min-height:132px;
+    display:grid;
+    grid-template-columns:var(--btv3-b1-upper-sp-media) minmax(0,1fr) 26px;
+    grid-template-rows:auto auto 1fr;
+    column-gap:12px;
+    align-items:center;
+    padding:11px 10px 11px 11px;
+    text-align:left;
+  }
+  .btv3-small-illust{
+    grid-column:1;
+    grid-row:1 / 4;
+    width:var(--btv3-b1-upper-sp-media);
+    height:var(--btv3-b1-upper-sp-media);
+    margin:0;
+    aspect-ratio:1;
+  }
+  .btv3-small-card b{
+    grid-column:2;
+    align-self:end;
+    font-size:14.5px;
+    line-height:1.45;
+    text-wrap:balance;
+  }
+  .btv3-small-card .btv3-card-date{
+    grid-column:2;
+    margin-top:3px;
+    font-size:11px;
+  }
+  .btv3-small-card p{
+    grid-column:2;
+    align-self:start;
+    margin-top:5px!important;
+    font-size:13px;
+    line-height:1.6;
+  }
+  .btv3-small-card > i{
+    position:static;
+    grid-column:3;
+    grid-row:1 / 4;
+    align-self:center;
+    width:25px;
+    height:25px;
+  }
+
+  /* 記事カード：サムネイルを左に置き、縦スクロール量を抑える */
+  .btv3-article{
+    min-height:140px;
+    display:grid;
+    grid-template-columns:var(--btv3-b1-article-sp-media) minmax(0,1fr) 26px;
+    grid-template-rows:auto auto 1fr;
+    column-gap:0;
+    align-items:center;
+    padding-right:9px;
+  }
+  .btv3-article img{
+    grid-column:1;
+    grid-row:1 / 4;
+    width:var(--btv3-b1-article-sp-media);
+    height:100%;
+    aspect-ratio:auto;
+    object-fit:cover;
+  }
+  .btv3-article b{
+    grid-column:2;
+    align-self:end;
+    padding:10px 10px 0 12px;
+    font-size:14px;
+    line-height:1.5;
+    text-wrap:balance;
+  }
+  .btv3-article .btv3-card-date{
+    grid-column:2;
+    margin-top:3px;
+    padding:0 10px 0 12px;
+    font-size:11px;
+  }
+  .btv3-article p{
+    grid-column:2;
+    align-self:start;
+    margin-top:4px!important;
+    padding:0 10px 10px 12px;
+    font-size:12.75px;
+    line-height:1.6;
+  }
+  .btv3-article > i{
+    position:static;
+    grid-column:3;
+    grid-row:1 / 4;
+    align-self:center;
+    width:25px;
+    height:25px;
+  }
+  .btv3-title-row{
+    align-items:flex-start;
+    gap:8px;
+  }
+  .btv3-title-row a{
+    padding-top:2px;
+    font-size:12px;
+  }
+
+  .btv3-voice{
+    margin-top:0;
+  }
+  .btv3-voice > p,
+  .btv3-profile-link{
+    font-size:13px;
+  }
+  .btv3-profile-points{
+    font-size:12px!important;
+  }
+
+  /* 指定SPバナー素材へ切替。素材自体の左ネイビー構図を生かす */
+  .btv3-school-banner{
+    min-height:var(--btv3-b1-school-sp-height);
+    padding:22px 19px;
+    background:var(--btv3-banner-navy);
+  }
+  .btv3-school-banner__picture{
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    display:block;
+  }
+  .btv3-school-banner__art{
+    opacity:1;
+    object-position:center;
+  }
+  .btv3-school-banner::before{
+    background:linear-gradient(90deg,rgba(1,18,59,.16),rgba(1,18,59,0) 70%);
+  }
+  .btv3-school-banner__copy{
+    width:62%;
+  }
+  .btv3-school-banner__eyebrow{
+    font-size:10.5px;
+    letter-spacing:.08em;
+  }
+  .btv3-school-banner__copy b{
+    font-size:19px;
+    line-height:1.42;
+  }
+  .btv3-school-banner__copy p{
+    font-size:11.5px;
+    line-height:1.55;
+  }
+  .btv3-school-banner__button{
+    min-height:38px;
+    padding:8px 15px;
+    font-size:12.5px;
+  }
+}
+
+@media (max-width:390px){
+  .btv3-small-card{
+    --btv3-b1-upper-sp-media:98px;
+  }
+  .btv3-article{
+    --btv3-b1-article-sp-media:112px;
+  }
+  .btv3-school-banner__copy{
+    width:64%;
+  }
+  .btv3-school-banner__copy b{
+    font-size:18px;
+  }
+}
+
+/* ---------- [03/14] 出典: batch1: 04_start_guide
+   file: work/batch1/css/04_start_guide-responsive-20260720.css ---------- */
+/* ==========================================================
+   04 心の声ナビ：タブレット2列／SPコンパクト化 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b1-startnavi-tablet-gap:16px;
+  --btv3-b1-startnavi-sp-radius:18px;
+}
+
+/* 3列では文字が細くなる帯域を2列へ。5枚目は中央配置 */
+@media (min-width:681px) and (max-width:1080px){
+  .btv3-startnavi{
+    padding:64px 20px 70px;
+  }
+  .btv3-startnavi__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:var(--btv3-b1-startnavi-tablet-gap);
+  }
+  .btv3-startnavi-card:last-child{
+    grid-column:1 / -1;
+    width:calc((100% - var(--btv3-b1-startnavi-tablet-gap)) / 2);
+    justify-self:center;
+  }
+  .btv3-startnavi-card__voice-text{
+    font-size:15.5px;
+    line-height:1.65;
+  }
+  .btv3-startnavi-card__line{
+    font-size:13.5px;
+  }
+}
+
+@media (max-width:680px){
+  .btv3-startnavi{
+    padding:52px 13px 58px;
+  }
+  .btv3-startnavi__eyebrow{
+    margin-bottom:11px;
+    font-size:12px;
+  }
+  .btv3-startnavi__title{
+    margin-bottom:13px;
+    font-size:clamp(25px,7.7vw,31px);
+    line-height:1.55;
+  }
+  .btv3-startnavi__lead{
+    margin-bottom:34px;
+    font-size:14px;
+    line-height:1.8;
+  }
+  .btv3-startnavi__grid{
+    gap:13px;
+  }
+  .btv3-startnavi-card{
+    border-radius:var(--btv3-b1-startnavi-sp-radius);
+    padding:22px 14px 14px;
+  }
+  .btv3-startnavi-card__tag{
+    top:-13px;
+    padding:4px 19px;
+    font-size:12px;
+  }
+  .btv3-startnavi-card__voice{
+    min-height:0;
+    margin-bottom:17px;
+    padding:12px 11px;
+    gap:10px;
+  }
+  .btv3-startnavi-card__voice::after{
+    bottom:-9px;
+    border-width:9px;
+  }
+  .btv3-startnavi-card__chara{
+    flex-basis:48px;
+  }
+  .btv3-startnavi-card__chara-face{
+    width:44px;
+    height:44px;
+  }
+  .btv3-startnavi-card__chara-name{
+    font-size:10.5px;
+  }
+  .btv3-startnavi-card__voice-text{
+    font-size:14.5px;
+    line-height:1.6;
+  }
+  .btv3-startnavi-card__answer{
+    gap:10px;
+    padding:0 2px;
+  }
+  .btv3-startnavi-card__father{
+    width:44px;
+    height:44px;
+    flex-basis:44px;
+  }
+  .btv3-startnavi-card__who{
+    font-size:12px;
+  }
+  .btv3-startnavi-card__line{
+    margin-top:2px;
+    font-size:13.5px;
+    line-height:1.65;
+  }
+  .btv3-startnavi-card__link{
+    margin-top:12px;
+    padding-top:11px;
+    font-size:13.5px;
+  }
+}
+
+
+/* ---------- [04/14] 出典: batch1: 09_cost
+   file: work/batch1/css/09_cost-responsive-20260720.css ---------- */
+/* ==========================================================
+   09 費用：極小文字・SP改行品質調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b1-cost-badge-min:9.5px;
+  --btv3-b1-cost-note-min:10.5px;
+}
+
+/* 「仮」表示は幅に関係なく最低9px以上を確保 */
+.btv3-costcalc__result-kicker span{
+  font-size:var(--btv3-b1-cost-badge-min);
+}
+.btv3-costcalc__prices sup,
+.btv3-costcalc__junior-facts sup{
+  font-size:var(--btv3-b1-cost-badge-min);
+}
+.btv3-costcalc__provisional{
+  font-size:var(--btv3-b1-cost-note-min);
+  line-height:1.7;
+}
+.btv3-costnav__disclaimer{
+  font-size:var(--btv3-b1-cost-note-min);
+  line-height:1.8;
+}
+
+@media (max-width:900px){
+  .btv3-costnav__head h2 span{
+    display:inline-block;
+    white-space:nowrap;
+  }
+  .btv3-costcalc__base small,
+  .btv3-costcalc__group legend small,
+  .btv3-costcalc__options label > span small{
+    font-size:10.5px;
+    line-height:1.5;
+  }
+  .btv3-costcalc__options label > span b{
+    font-size:13px;
+    line-height:1.45;
+  }
+  .btv3-costcalc__result-kicker{
+    font-size:10.5px;
+  }
+  .btv3-costcalc__selected{
+    font-size:13px;
+    line-height:1.6;
+  }
+  .btv3-costcalc__prices span{
+    font-size:10.5px;
+  }
+  .btv3-costcalc__included{
+    font-size:11.5px;
+    line-height:1.75;
+  }
+  .btv3-costcalc__included span{
+    font-size:10.5px;
+  }
+  .btv3-costcalc__availability{
+    font-size:11.5px;
+    line-height:1.75;
+  }
+  .btv3-costcalc__secondary{
+    font-size:12px;
+  }
+  .btv3-costcalc__junior-facts span,
+  .btv3-costcalc__junior-facts small,
+  .btv3-costcalc__junior-action small{
+    font-size:10px;
+  }
+  .btv3-costcalc__junior-checks li{
+    font-size:11px;
+    line-height:1.6;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-costnav__head{
+    padding-right:16px;
+    padding-left:16px;
+  }
+  .btv3-costnav__head h2{
+    font-size:clamp(27px,8.2vw,31px);
+    line-height:1.42;
+    letter-spacing:.01em;
+  }
+  .btv3-costnav__head > p:last-child{
+    font-size:13.5px;
+    line-height:1.85;
+  }
+  .btv3-costcalc__mode-tab small{
+    font-size:10.5px;
+  }
+  .btv3-costcalc__mode-tab b{
+    font-size:16px;
+  }
+  .btv3-costcalc__base b,
+  .btv3-costcalc__group legend b{
+    font-size:14px;
+  }
+  .btv3-costcalc__price strong{
+    font-size:53px;
+  }
+  .btv3-costcalc__prices strong{
+    font-size:25px;
+  }
+  .btv3-costcalc__result h3{
+    font-size:24px;
+    line-height:1.4;
+  }
+  .btv3-costcalc__junior-copy > p:last-child{
+    font-size:13px;
+    line-height:1.85;
+  }
+}
+
+
+/* ---------- [05/14] 出典: batch2: 05_real_experience
+   file: work/batch2/css/05_real_experience-responsive-20260720.css ---------- */
+/* ==========================================================
+   05 実録：タブレット／スマホ文字・余白調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b2-trip-tablet-max:620px;
+  --btv3-b2-trip-sp-gap:16px;
+}
+
+@media (min-width:641px) and (max-width:960px){
+  .btv3-trip-grid{
+    max-width:var(--btv3-b2-trip-tablet-max);
+  }
+  .btv3-polaroid figcaption{
+    font-size:11.5px;
+    line-height:1.5;
+  }
+  .btv3-trip-list dd{
+    font-size:14px;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-real2{
+    padding-top:38px;
+    padding-bottom:32px;
+  }
+  .btv3-real2 .btv3-section-title{
+    margin-bottom:18px;
+  }
+  .btv3-real2 .btv3-section-title h2{
+    font-size:clamp(22px,6.4vw,27px)!important;
+    line-height:1.5!important;
+    text-wrap:balance;
+  }
+  .btv3-real2 .btv3-section-title p{
+    font-size:14px;
+    line-height:1.75;
+  }
+  .btv3-trip-grid{
+    gap:var(--btv3-b2-trip-sp-gap);
+  }
+  .btv3-trip-card{
+    padding:18px 15px 17px;
+  }
+  .btv3-trip-photos{
+    margin-bottom:13px;
+  }
+  .btv3-polaroid{
+    padding:6px 6px 7px;
+  }
+  .btv3-polaroid img{
+    height:126px;
+  }
+  .btv3-polaroid figcaption{
+    margin-top:5px;
+    font-size:11.5px;
+    line-height:1.5;
+  }
+  .btv3-trip-head{
+    margin:11px 0 10px;
+    gap:8px;
+  }
+  .btv3-trip-head b{
+    font-size:15px;
+    line-height:1.5;
+  }
+  .btv3-trip-badge{
+    padding:3px 11px;
+    font-size:12px;
+  }
+  .btv3-trip-list{
+    gap:9px;
+  }
+  .btv3-trip-list dt{
+    font-size:13px;
+  }
+  .btv3-trip-list dd{
+    font-size:14px;
+    line-height:1.75;
+  }
+  .btv3-trip-cta{
+    margin-top:24px;
+  }
+}
+
+
+/* ---------- [06/14] 出典: batch2: 06_steps
+   file: work/batch2/css/06_steps-responsive-20260720.css ---------- */
+/* ==========================================================
+   06 ロードマップ：1024px境界・縦一本道品質調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b2-roadmap-tablet-max:820px;
+  --btv3-b2-roadmap-sp-road-width:30px;
+  --btv3-b2-roadmap-dash:#fff;
+  --btv3-b2-roadmap-shadow:0 4px 10px rgba(1,83,200,.10);
+}
+
+/* 1024pxをタブレット範囲に含め、既存の縦一本道を適用 */
+@media (max-width:1024px){
+  .btv3-rm-board{
+    margin-top:20px;
+    padding-left:0;
+  }
+  .btv3-rm-board::before{
+    content:"";
+    position:absolute;
+    left:12px;
+    top:4px;
+    bottom:4px;
+    width:32px;
+    border:3px solid var(--btv3-rm-road-edge);
+    border-radius:16px;
+    background-color:var(--btv3-rm-road);
+    background-image:repeating-linear-gradient(180deg,var(--btv3-b2-roadmap-dash) 0 10px,transparent 10px 22px);
+    background-position:50% 0;
+    background-repeat:no-repeat;
+    background-size:3px 100%;
+    box-shadow:var(--btv3-b2-roadmap-shadow);
+  }
+  .btv3-rm-row,
+  .btv3-rm-row--4,
+  .btv3-rm-row--3{
+    display:flex;
+    height:auto;
+    margin:0 0 14px 60px;
+    padding:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:13px;
+  }
+  .btv3-rm-row--pad{padding-top:0}
+  .btv3-rm-row--rtl{direction:ltr}
+  .btv3-rm-row::before,
+  .btv3-rm-row::after,
+  .btv3-rm-turn{display:none}
+  .btv3-rm-stop{
+    width:auto;
+    min-height:0;
+  }
+  .btv3-rm-stop__no{
+    top:14px;
+    left:-62px;
+    width:30px;
+    height:30px;
+    font-size:13.5px;
+  }
+  .btv3-rm-father{
+    position:static;
+    width:auto;
+    max-width:none;
+    margin:0 44px 2px 0;
+  }
+  .btv3-rm-detour{
+    position:relative;
+    top:auto;
+    left:auto;
+    order:-1;
+    width:auto;
+    margin:0 0 0 28px;
+  }
+  .btv3-rm-detour::before{
+    top:50%;
+    left:-44px;
+    width:44px;
+    height:0;
+    border-top:3px dashed var(--btv3-sn-gold);
+    border-left:0;
+  }
+  .btv3-rm-bg{display:none}
+  .btv3-rm-stop--start::after{right:8px}
+  .btv3-rm-stop--goal::after{right:14px;left:46px}
+  .btv3-rm-stop__time{font-size:11px}
+  .btv3-rm-stop__title{font-size:15.5px}
+  .btv3-rm-stop__desc{font-size:12.5px;line-height:1.65}
+  .btv3-rm-stop__link{font-size:12px}
+}
+
+@media (min-width:641px) and (max-width:1024px){
+  .btv3-rm-board{
+    width:100%;
+    max-width:var(--btv3-b2-roadmap-tablet-max);
+    margin-right:auto;
+    margin-left:auto;
+  }
+}
+
+@media (max-width:640px){
+  #roadmap{
+    padding-top:38px;
+    padding-bottom:30px;
+  }
+  #roadmap .btv3-section-title h2{
+    font-size:clamp(22px,6.4vw,27px)!important;
+    line-height:1.45!important;
+    text-wrap:balance;
+  }
+  #roadmap .btv3-section-title p{
+    font-size:13.5px;
+    line-height:1.7;
+  }
+  .btv3-rm-board::before{
+    left:10px;
+    width:var(--btv3-b2-roadmap-sp-road-width);
+  }
+  .btv3-rm-row,
+  .btv3-rm-row--4,
+  .btv3-rm-row--3{
+    margin-left:55px;
+    gap:11px;
+  }
+  .btv3-rm-stop{
+    gap:4px;
+    padding:13px 12px 12px;
+  }
+  .btv3-rm-stop__no{
+    left:-57px;
+    width:29px;
+    height:29px;
+    font-size:13px;
+  }
+  .btv3-rm-stop__time{
+    font-size:11px;
+  }
+  .btv3-rm-stop__title{
+    font-size:15px;
+    line-height:1.45;
+  }
+  .btv3-rm-stop__desc{
+    font-size:13px;
+    line-height:1.65;
+  }
+  .btv3-rm-stop__link{
+    font-size:12.5px;
+  }
+  .btv3-rm-father{
+    margin-right:22px;
+  }
+  .btv3-rm-father__bubble{
+    font-size:12px;
+    line-height:1.55;
+  }
+  .btv3-rm-father__bubble b{
+    font-size:10.5px;
+  }
+  .btv3-rm-detour{
+    margin-left:22px;
+    padding:10px 11px;
+  }
+  .btv3-rm-detour::before{
+    left:-37px;
+    width:37px;
+  }
+  .btv3-rm-detour__body b{
+    font-size:13px;
+  }
+  .btv3-rm-detour__body span{
+    font-size:12px;
+    line-height:1.6;
+  }
+}
+
+/* ---------- [07/14] 出典: batch2: 07_period
+   file: work/batch2/css/07_period-responsive-20260720.css ---------- */
+/* ==========================================================
+   07 搭乗券：横スワイプ仕様維持・極小文字調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b2-ticket-micro-min:9.5px;
+  --btv3-b2-ticket-note-min:10.5px;
+}
+
+/* 4枚表示を維持する901〜1100px帯で8px台を解消 */
+@media (max-width:1100px) and (min-width:901px){
+  .btv3-ticket-airline{
+    font-size:var(--btv3-b2-ticket-micro-min);
+    letter-spacing:.08em;
+  }
+  .btv3-ticket-flight{
+    font-size:var(--btv3-b2-ticket-micro-min);
+  }
+  .btv3-ticket-stamp span{
+    font-size:var(--btv3-b2-ticket-micro-min);
+    letter-spacing:.015em;
+  }
+  .btv3-ticket-meters > div > span,
+  .btv3-ticket-meters strong{
+    font-size:var(--btv3-b2-ticket-note-min);
+  }
+  .btv3-ticket-stub p{
+    font-size:11.5px;
+    line-height:1.65;
+  }
+  .btv3-ticket-stub p span{
+    font-size:10px;
+  }
+}
+
+@media (max-width:900px){
+  .btv3-period-heading h2{
+    text-wrap:balance;
+  }
+  .btv3-ticket-airline,
+  .btv3-ticket-flight{
+    font-size:10.5px;
+  }
+  .btv3-ticket-stamp span{
+    font-size:10px;
+  }
+  .btv3-ticket-stub p{
+    font-size:13px;
+    line-height:1.72;
+  }
+  .btv3-ticket-stub p span{
+    font-size:11px;
+  }
+  .btv3-period-swipe{
+    font-size:12px;
+  }
+}
+
+@media (max-width:430px){
+  .btv3-period{
+    padding-top:46px;
+  }
+  .btv3-period-heading p{
+    font-size:14px;
+    line-height:1.8;
+  }
+  .btv3-ticket{
+    flex-basis:min(82vw,310px);
+  }
+}
+
+
+/* ---------- [08/14] 出典: batch2: 08_characters
+   file: work/batch2/css/08_characters-responsive-20260720.css ---------- */
+/* ==========================================================
+   08 キャラクター：SPカードリズム・長さ調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b2-chars-sp-visual:118px;
+  --btv3-b2-chars-sp-gap:12px;
+}
+
+@media (max-width:600px){
+  .btv3-chars-section{
+    --btv3-chars-section-pad:48px;
+    --btv3-chars-grid-top:24px;
+    --btv3-chars-body-size:13.5px;
+  }
+  .btv3-chars-header h2{
+    font-size:clamp(23px,7vw,28px);
+    text-wrap:balance;
+  }
+  .btv3-chars-header p{
+    font-size:14px;
+    line-height:1.75;
+  }
+  .btv3-chars-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:var(--btv3-b2-chars-sp-gap);
+  }
+
+  /* 公開中2キャラは横長カードにし、説明の読みやすさを維持 */
+  .btv3-chars-card--mama,
+  .btv3-chars-card--honki{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:var(--btv3-b2-chars-sp-visual) minmax(0,1fr);
+    align-items:center;
+    padding:10px;
+  }
+  .btv3-chars-card--mama .btv3-chars-visual,
+  .btv3-chars-card--honki .btv3-chars-visual{
+    width:var(--btv3-b2-chars-sp-visual);
+    height:var(--btv3-b2-chars-sp-visual);
+    aspect-ratio:1;
+  }
+  .btv3-chars-card--mama .btv3-chars-copy,
+  .btv3-chars-card--honki .btv3-chars-copy{
+    padding:8px 8px 8px 14px;
+  }
+  .btv3-chars-copy h3{
+    margin-bottom:8px;
+    font-size:17px;
+  }
+  .btv3-chars-copy p{
+    line-height:1.75;
+  }
+
+  /* 未公開枠だけを小型2列にし、同じ大型カードの反復を避ける */
+  .btv3-chars-card--soon{
+    min-width:0;
+    padding:8px;
+  }
+  .btv3-chars-card--soon .btv3-chars-visual{
+    padding:18px;
+  }
+  .btv3-chars-card--soon .btv3-chars-copy{
+    padding:12px 4px 10px;
+  }
+  .btv3-chars-card--soon h3{
+    font-size:13px;
+    line-height:1.4;
+    letter-spacing:.05em;
+  }
+  .btv3-chars-card--soon p{
+    font-size:11.5px;
+    line-height:1.65;
+  }
+}
+
+@media (max-width:390px){
+  .btv3-chars-section{
+    --btv3-b2-chars-sp-visual:108px;
+    --btv3-chars-inline-pad:13px;
+  }
+  .btv3-chars-card--mama .btv3-chars-copy,
+  .btv3-chars-card--honki .btv3-chars-copy{
+    padding-left:11px;
+  }
+  .btv3-chars-copy p{
+    font-size:13px;
+  }
+}
+
+
+/* ---------- [09/14] 出典: batch3: 00_header
+   file: work/batch3/css/00_header-responsive-20260720.css ---------- */
+/* ==========================================================
+   00 ヘッダー：スマホ密度・ナビ文字調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b3-header-sp-nav-size:12px;
+  --btv3-b3-header-sp-gap:10px;
+}
+
+@media (min-width:641px) and (max-width:960px){
+  .btv3-header__inner{
+    row-gap:10px;
+  }
+  .btv3-nav{
+    gap:26px;
+    font-size:14px;
+  }
+}
+
+/* 640px以下はver20元データの2段ナビを維持するため、追加上書きなし */
+
+/* ---------- [10/14] 出典: batch3: 10_faq
+   file: work/batch3/css/10_faq-responsive-20260720.css ---------- */
+/* ==========================================================
+   10 FAQ：SP長文・タップ領域調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b3-faq-sp-question:15px;
+  --btv3-b3-faq-sp-body:14px;
+}
+
+@media (max-width:760px){
+  .btv3-faq__head h2,
+  .btv3-faq__question{
+    text-wrap:balance;
+  }
+  .btv3-faq__item > summary{
+    min-height:74px;
+  }
+}
+
+@media (max-width:430px){
+  .btv3-faq{
+    padding-top:44px;
+    padding-bottom:48px;
+  }
+  .btv3-faq__head h2{
+    font-size:clamp(24px,7.2vw,28px)!important;
+    line-height:1.45!important;
+  }
+  .btv3-faq__head p{
+    font-size:13.5px;
+    line-height:1.8;
+  }
+  .btv3-faq__item > summary{
+    grid-template-columns:36px minmax(0,1fr) 18px;
+    gap:9px;
+    min-height:72px;
+    padding:14px 12px;
+  }
+  .btv3-faq__number{
+    width:36px;
+    height:36px;
+    font-size:11px;
+  }
+  .btv3-faq__question{
+    font-size:var(--btv3-b3-faq-sp-question);
+    line-height:1.55;
+  }
+  .btv3-faq__answer{
+    margin:0 12px 18px;
+    padding-top:13px;
+  }
+  .btv3-faq__lead{
+    font-size:15px!important;
+    line-height:1.75!important;
+  }
+  .btv3-faq__body p{
+    font-size:var(--btv3-b3-faq-sp-body);
+    line-height:1.85;
+  }
+  .btv3-faq__related{
+    padding:10px 12px;
+    font-size:12.5px;
+  }
+}
+
+
+/* ---------- [11/14] 出典: batch3: 11_final_cta
+   file: work/batch3/css/11_final_cta-responsive-20260720.css ---------- */
+/* ==========================================================
+   11 最終CTA：SP補助文字・余白調整 2026-07-20
+   追加パッチ（site.cssの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-b3-final-sp-body:13px;
+  --btv3-b3-final-sp-note:13px;
+}
+
+@media (max-width:760px){
+  .btv3-finalcta__title{
+    text-wrap:balance;
+  }
+  .btv3-finalcta__choice{
+    min-height:140px;
+  }
+}
+
+@media (max-width:480px){
+  .btv3-finalcta__eyebrow{
+    font-size:11.5px;
+    line-height:1.55;
+  }
+  .btv3-finalcta__lead{
+    font-size:14px;
+    line-height:1.85;
+  }
+  .btv3-finalcta__choice-label{
+    font-size:11.5px;
+  }
+  .btv3-finalcta__choice-description{
+    font-size:var(--btv3-b3-final-sp-body);
+    line-height:1.7;
+  }
+  .btv3-finalcta__reassurance{
+    font-size:14px;
+  }
+  .btv3-finalcta__general{
+    font-size:var(--btv3-b3-final-sp-note);
+    line-height:1.8;
+  }
+}
+
+
+/* ---------- [12/14] 出典: fv: 01_fv-sp-integrated
+   file: work/fv/css/01_fv-sp-integrated-20260720.css ---------- */
+/* ==========================================================
+   01 FV：スマホLP型・写真全面＋左コピー 2026-07-20
+   追加パッチ（第1便01パッチの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-fv-sp-lp-height:400px;
+  --btv3-fv-sp-lp-copy-width:58%;
+  --btv3-fv-sp-lp-copy-top:24px;
+  --btv3-fv-sp-lp-buttons-bottom:12px;
+  --btv3-fv-sp-lp-photo-position:62% 43%;
+  --btv3-fv-sp-lp-button-shadow:0 8px 20px rgba(0,87,200,.16);
+  --btv3-fv-sp-lp-side-overlay:linear-gradient(90deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.95) 32%,rgba(255,255,255,.68) 52%,rgba(255,255,255,.12) 73%,rgba(255,255,255,0) 100%);
+  --btv3-fv-sp-lp-bottom-overlay:linear-gradient(180deg,rgba(238,250,255,0) 58%,rgba(238,250,255,.74) 79%,rgba(238,250,255,.98) 100%);
+}
+
+@media (max-width:640px){
+  .btv3-hero{
+    min-height:var(--btv3-fv-sp-lp-height);
+    background:var(--btv3-pale);
+  }
+  .btv3-hero__photo{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    margin:0;
+  }
+  .btv3-hero__photo img{
+    object-position:var(--btv3-fv-sp-lp-photo-position);
+    filter:saturate(1.03) brightness(1.03) contrast(1.01);
+  }
+  .btv3-hero::before{
+    inset:0;
+    z-index:2;
+    height:auto;
+    background:var(--btv3-fv-sp-lp-side-overlay),var(--btv3-fv-sp-lp-bottom-overlay);
+  }
+  .btv3-hero__inner{
+    min-height:var(--btv3-fv-sp-lp-height);
+    align-items:flex-start;
+    padding-top:var(--btv3-fv-sp-lp-copy-top);
+    padding-bottom:0;
+  }
+  .btv3-hero__copy{
+    position:static;
+    width:var(--btv3-fv-sp-lp-copy-width);
+    padding:0;
+  }
+  .btv3-hero-title .btv3-hero-title__eyebrow{
+    max-width:205px;
+    margin-bottom:6px;
+    font-size:clamp(17px,4.8vw,21px);
+    line-height:1.4;
+    text-wrap:balance;
+  }
+  .btv3-hero-title span,
+  .btv3-hero-title strong{
+    font-size:clamp(33px,9.5vw,41px);
+    line-height:1.04;
+  }
+  .btv3-hero-sub{
+    max-width:202px;
+    margin-top:10px!important;
+    font-size:11.5px;
+    line-height:1.55;
+    text-wrap:balance;
+  }
+  .btv3-hero-lead{
+    max-width:198px;
+    margin-top:4px!important;
+    font-size:11.5px;
+    line-height:1.5;
+  }
+  .btv3-hero-buttons{
+    position:absolute;
+    right:0;
+    bottom:var(--btv3-fv-sp-lp-buttons-bottom);
+    left:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:7px;
+  }
+  .btv3-hero-buttons .btv3-btn{
+    min-height:42px;
+    padding-top:9px;
+    padding-bottom:9px;
+    font-size:13.5px;
+    box-shadow:var(--btv3-fv-sp-lp-button-shadow);
+  }
+}
+
+/* 横長の元画像を縦長にcoverしない。430px以下は元の縦横比を保って右寄せする */
+@media (max-width:430px){
+  .btv3-hero{
+    --btv3-fv-sp-lp-height:345px;
+    --btv3-fv-sp-lp-copy-width:57%;
+    --btv3-fv-sp-lp-copy-top:18px;
+  }
+  .btv3-hero__photo img{
+    position:absolute;
+    top:0;
+    right:0;
+    width:100%;
+    max-width:none;
+    height:auto;
+    object-fit:contain;
+    object-position:right top;
+  }
+}
+
+@media (max-width:390px){
+  .btv3-hero{
+    --btv3-fv-sp-lp-height:330px;
+    --btv3-fv-sp-lp-copy-width:58%;
+    --btv3-fv-sp-lp-copy-top:16px;
+  }
+  .btv3-hero-title .btv3-hero-title__eyebrow{
+    font-size:17px;
+  }
+  .btv3-hero-title span,
+  .btv3-hero-title strong{
+    font-size:35px;
+  }
+}
+
+/* ---------- [13/14] 出典: compact-sliders: 01_trust-cards-compact
+   file: work/compact-sliders/css/01_trust-cards-compact-20260720.css ---------- */
+/* ==========================================================
+   01 信頼カード：SP中央揃え・コンパクト化 2026-07-20
+   追加パッチ（第1便01パッチの後に読み込む）
+   ========================================================== */
+:root{
+  --btv3-slider-feature-max:340px;
+  --btv3-slider-feature-gap:8px;
+  --btv3-slider-feature-icon:40px;
+  --btv3-slider-feature-min-height:60px;
+}
+
+@media (max-width:640px){
+  .btv3-hero-features{
+    padding-top:12px;
+    padding-bottom:8px;
+  }
+  .btv3-hero-features .btv3-container{
+    width:min(calc(100% - 26px),var(--btv3-slider-feature-max));
+    margin-right:auto;
+    margin-left:auto;
+  }
+  .btv3-feature-grid{
+    gap:var(--btv3-slider-feature-gap);
+  }
+  .btv3-feature-card{
+    min-height:var(--btv3-slider-feature-min-height);
+    gap:9px;
+    padding:7px 10px;
+  }
+  .btv3-icon-circle{
+    width:var(--btv3-slider-feature-icon);
+    height:var(--btv3-slider-feature-icon);
+  }
+  .btv3-icon-circle svg{
+    width:21px;
+    height:21px;
+  }
+  .btv3-feature-card__head{
+    gap:7px;
+    margin-bottom:2px;
+  }
+  .btv3-feature-card__value{
+    font-size:21px;
+  }
+  .btv3-feature-card__value.btv3-is-long{
+    font-size:17px;
+  }
+  .btv3-feature-card__label{
+    font-size:12.5px;
+  }
+  .btv3-feature-card em{
+    margin-top:1px;
+    font-size:11px;
+    line-height:1.45;
+  }
+}
+
+
+/* ---------- [14/14] 出典: compact-sliders: 02_content-card-sliders
+   file: work/compact-sliders/css/02_content-card-sliders-20260720.css ---------- */
+/* ==========================================================
+   02 不安カード／最初の3記事：SP手動スライダー 2026-07-20
+   CSS scroll-snap・追加JavaScriptなし
+   ========================================================== */
+:root{
+  --btv3-slider-card-width:min(84vw,320px);
+  --btv3-slider-track-gap:12px;
+  --btv3-slider-track-edge:13px;
+  --btv3-slider-track-bottom:12px;
+}
+
+@media (max-width:640px){
+  .btv3-recommend-grid,
+  .btv3-article-grid{
+    display:flex;
+    gap:var(--btv3-slider-track-gap);
+    margin-right:calc(-1 * var(--btv3-slider-track-edge));
+    margin-left:calc(-1 * var(--btv3-slider-track-edge));
+    padding:0 var(--btv3-slider-track-edge) var(--btv3-slider-track-bottom);
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-padding-inline:var(--btv3-slider-track-edge);
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-inline:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .btv3-recommend-grid::-webkit-scrollbar,
+  .btv3-article-grid::-webkit-scrollbar{
+    display:none;
+  }
+  .btv3-recommend-grid > *,
+  .btv3-article-grid > *{
+    flex:0 0 var(--btv3-slider-card-width);
+    min-width:0;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+
+  /* 不安カード：16:9イラスト＋本文の縦カード */
+  .btv3-small-card{
+    min-height:0;
+    display:block;
+    padding:0 14px 42px;
+    text-align:left;
+  }
+  .btv3-small-illust{
+    width:calc(100% + 28px);
+    height:auto;
+    margin:0 -14px 14px;
+    aspect-ratio:16/9;
+    border-radius:0;
+  }
+  .btv3-small-illust img{
+    width:88%;
+    height:88%;
+    object-fit:contain;
+  }
+  .btv3-small-card b{
+    font-size:16px;
+    line-height:1.5;
+    text-wrap:balance;
+  }
+  .btv3-small-card .btv3-card-date{
+    margin-top:6px;
+    font-size:11.5px;
+  }
+  .btv3-small-card p{
+    margin-top:8px!important;
+    font-size:13.5px;
+    line-height:1.75;
+  }
+  .btv3-small-card > i{
+    position:absolute;
+    right:12px;
+    bottom:11px;
+    width:28px;
+    height:28px;
+  }
+
+  /* 記事カード：SWELL風16:9サムネイル＋本文の縦カード */
+  .btv3-article{
+    min-height:0;
+    display:block;
+    padding:0 0 42px;
+  }
+  .btv3-article img{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+    object-fit:cover;
+  }
+  .btv3-article b{
+    display:block;
+    padding:14px 14px 0;
+    font-size:16px;
+    line-height:1.5;
+    text-wrap:balance;
+  }
+  .btv3-article .btv3-card-date{
+    margin-top:7px;
+    padding:0 14px;
+    font-size:11.5px;
+  }
+  .btv3-article p{
+    margin-top:8px!important;
+    padding:0 14px;
+    font-size:13.5px;
+    line-height:1.75;
+  }
+  .btv3-article > i{
+    position:absolute;
+    right:12px;
+    bottom:11px;
+    width:28px;
+    height:28px;
+  }
+}
+
+
+/* ##########################################################
+   ver21 レスポンシブ調整一式 追記ここまで（14本）
+   ########################################################## */
