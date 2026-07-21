@@ -2369,6 +2369,9 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 .btv3-period-cta a:hover{background:var(--btv3-period-blue);transform:translateY(-2px)}
 .btv3-period-cta a:hover svg{transform:translateX(3px) rotate(-7deg)}
 .btv3-period-cta a:focus-visible{outline:3px solid var(--btv3-period-gold);outline-offset:4px}
+/* 未公開記事用：グレー非クリック（形状はボタンのまま／色と影だけ落とす） */
+.btv3-period-cta__link--soon{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:13px 42px;border-radius:999px;background:#e8ecf2;border:1px solid #dbe1ea;box-shadow:none;color:#95a2b3;font-size:15px;font-weight:700;cursor:default}
+.btv3-period-cta__link--soon svg{width:17px;height:17px;fill:currentColor}
 @media (max-width:1100px) and (min-width:901px){
   .btv3-period-container{width:calc(100% - 32px)}
   .btv3-period-rail{gap:10px}
@@ -2404,7 +2407,7 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
   .btv3-period-rail-wrap:focus-within + .btv3-period-swipe svg,
   .btv3-period.btv3-has-swiped .btv3-period-swipe svg{animation:none}
   .btv3-period-cta{margin-top:34px}
-  .btv3-period-cta a{width:100%;max-width:350px;padding-right:22px;padding-left:22px;font-size:14.5px}
+  .btv3-period-cta a,.btv3-period-cta__link--soon{width:100%;max-width:350px;padding-right:22px;padding-left:22px;font-size:14.5px}
 }
 @media (max-width:430px){
   .btv3-period-heading{padding-right:18px;padding-left:18px}
@@ -2424,7 +2427,7 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 /* PERIOD区画はborder-box前提で設計されているため、セクション内限定で明示（ver07ベースに全称リセットが無いための保険） */
 .btv3-period,.btv3-period *,.btv3-period *::before,.btv3-period *::after{box-sizing:border-box}
 @media (max-width:430px){
-  .btv3-period-cta a{max-width:calc(100% - 8px);padding:13px 22px;font-size:14px;gap:8px}
+  .btv3-period-cta a,.btv3-period-cta__link--soon{max-width:calc(100% - 8px);padding:13px 22px;font-size:14px;gap:8px}
 }
 
 
