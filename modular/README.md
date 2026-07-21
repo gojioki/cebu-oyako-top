@@ -42,7 +42,7 @@ SWELLへ入れる際は、ヘッダーとFVブロックを分けて扱えます�
 - `00_header.html`
 - `01_fv_trust_mother.html`
 - `02_front_navigation.html`
-- `03_merit_band.html`
+- `03_merit_band.html`（ver22で廃止）
 - `04_start_guide.html`
 - `05_real_experience.html`
 - `06_steps.html`

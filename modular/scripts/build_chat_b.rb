@@ -58,8 +58,9 @@ end
 FileUtils.mkdir_p(PREVIEW_DIR)
 FileUtils.mkdir_p(DOWNLOADS_DIR)
 
-# Chat B scope only: front navigation, school directory banner, and merit bar.
-source = ["02_front_navigation.html", "03_merit_band.html"].map do |name|
+# Chat B scope only: front navigation, school directory banner.
+# ver22: 03_merit_band廃止に伴い参照を除外。
+source = ["02_front_navigation.html"].map do |name|
   File.read(File.join(SECTIONS_DIR, name))
 end.join("\n")
 

@@ -780,37 +780,7 @@ body{margin:0;background:#fff}
 }
 }
 
-/* MERIT */
-.btv3-merit{
-  background:#e6f8ff;
-  border-top:1px solid #d1ebf8;
-  border-bottom:1px solid #d1ebf8;
-}
-.btv3-merit-list{
-  min-height:46px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  color:var(--btv3-blue);
-  font-size:14px;
-  font-weight:900;
-  white-space:nowrap;
-}
-.btv3-merit-list b,
-.btv3-merit-list span{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-}
-.btv3-merit-list svg{
-  width:23px;height:23px;
-  color:var(--btv3-teal);
-}
-.btv3-merit-list span:nth-of-type(1) svg{color:var(--btv3-blue)}
-.btv3-merit-list span:nth-of-type(2) svg{color:var(--btv3-orange)}
-.btv3-merit-list span:nth-of-type(3) svg{color:var(--btv3-teal)}
-.btv3-merit-list span:nth-of-type(4) svg{color:var(--btv3-sky)}
+/* MERIT: ver22で03_merit_band廃止に伴い削除（旧定義はタグver21参照） */
 
 /* SECTIONS */
 .btv3-section{
@@ -1453,7 +1423,6 @@ body{margin:0;background:#fff}
   .btv3-real__copy{padding:34px 24px}
   /* ver14無効化: .btv3-step-grid{grid-template-columns:1fr} */
   /* ver14無効化: .btv3-step-arrow{transform:rotate(90deg);font-size:38px} */
-  .btv3-merit-list{overflow:auto;justify-content:flex-start}
   /* ver20無効化: .btv3-final-inner{grid-template-columns:1fr} */
   .btv3-school-banner__copy{width:50%}
   .btv3-school-banner__copy b{font-size:22px}
@@ -1591,7 +1560,6 @@ body{margin:0;background:#fff}
 .btv3-cost-bottom,
 .btv3-final-copy p{font-weight:600}
 .btv3-voice-head em,
-.btv3-merit-list,
 .btv3-cost-bottom a,
 .btv3-faq-grid summary,
 .btv3-final-card em{font-weight:600}
@@ -1896,7 +1864,7 @@ body{margin:0;background:#fff}
 }
 
 /* ==========================================================
-   ver14: ROADMAP（セブ島親子留学ロードマップ・すごろく型）
+   ver15: ROADMAP（セブ島親子留学ロードマップ・すごろく型）
    06_stepsの全面差し替え用。行高さ固定＋道路位置絶対値化で
    コンテナ幅に依存せずカーブ接続が保たれる決定論的設計。
    ========================================================== */
@@ -2254,7 +2222,7 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 /* ▲▲ ver15 装飾パス（ここまで） ▲▲ */
 
 /* ==========================================================
-   ver14: ROADMAP ここまで
+   ver15: ROADMAP ここまで
    ========================================================== */
 
 /* ==========================================================
