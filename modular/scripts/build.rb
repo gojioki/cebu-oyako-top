@@ -98,6 +98,18 @@ full_local = html_document(
 full_preview_name = "#{VERSION}_全体軽量プレビュー.html"
 File.write(File.join(PREVIEW_DIR, full_preview_name), full_local)
 
+# GitHub Pages 公開用：ルート index.html。
+# CSS・画像はリポジトリ内をルート相対で参照するため軽量（追跡済みアセットを配信）。
+index_body = replace_assets(full_source, mode: :local, output_dir: ROOT)
+index_css_path = Pathname.new(CSS_FILE).relative_path_from(Pathname.new(ROOT)).to_s
+index_html = html_document(
+  title: "ぶっ飛びセブ島親子留学｜PC版デザインプレビュー",
+  css: "",
+  body: index_body,
+  external_css: index_css_path
+)
+File.write(File.join(ROOT, "index.html"), index_html)
+
 # 外部持ち出し用：最後だけCSS・画像をすべて埋め込む。
 standalone_body = replace_assets(full_source, mode: :embed, output_dir: DOWNLOADS_DIR)
 standalone = html_document(
@@ -109,6 +121,7 @@ standalone_name = "#{VERSION}_ぶっ飛びセブ島親子留学_TOP_PC_統合版
 File.write(File.join(DOWNLOADS_DIR, standalone_name), standalone)
 
 puts "Built:"
+puts "- index.html (GitHub Pages 公開用)"
 puts "- modular/preview/#{fv_preview_name}"
 puts "- modular/preview/#{full_preview_name}"
 puts "- downloads/#{standalone_name}"
