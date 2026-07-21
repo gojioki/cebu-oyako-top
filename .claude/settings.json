@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "defaultMode": "acceptEdits",
+    "allow": [
+      "Read",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(file:*)",
+      "Bash(sed -n:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(ruby modular/scripts/build.rb:*)",
+      "Bash(python3:*)",
+      "Bash(sips:*)",
+      "Write(downloads/**)",
+      "Write(deliveries/**)",
+      "Write(modular/**)",
+      "Write(assets/**)"
+    ]
+  }
+}
