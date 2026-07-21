@@ -5258,3 +5258,39 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 /* ##########################################################
    ver21 レスポンシブ調整一式 追記ここまで（14本）
    ########################################################## */
+
+/* ==========================================================
+   ver24: FV信頼カード 非リンク化＋4枚目差し替え＋SP2列×2行 2026-07-21
+   ========================================================== */
+/* PC: 見出し行は幅が足りない場合のみ折り返しを許可（はみ出し防止） */
+.btv3-feature-card__head{flex-wrap:wrap;row-gap:2px}
+
+/* SP: 2列×2行・補足文非表示・大見出し＋小見出しの2段のみ */
+@media (max-width:640px){
+  .btv3-hero-features .btv3-container{
+    width:min(calc(100% - 26px),400px);
+  }
+  .btv3-feature-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+  }
+  .btv3-feature-card{
+    min-height:60px;
+    align-items:center;
+    justify-content:center;
+    padding:9px 8px;
+  }
+  .btv3-feature-card .btv3-icon-circle{display:none}
+  .btv3-feature-card em{display:none}
+  .btv3-feature-card__copy{text-align:center}
+  .btv3-feature-card__head{
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    margin-bottom:0;
+  }
+  .btv3-feature-card__value{font-size:22px}
+  .btv3-feature-card__value.btv3-is-long{font-size:20px}
+  /* 既存 .btv3-feature-card b{font-size:16px} より優先させるため要素付きで指定 */
+  .btv3-feature-card b.btv3-feature-card__label{font-size:12px;line-height:1.25}
+}
