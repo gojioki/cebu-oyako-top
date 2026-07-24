@@ -383,7 +383,7 @@ body{margin:0;background:#fff}
   white-space:nowrap;
 }
 .btv3-mother-note__inner span{
-  font-size:13px;
+  font-size:15px;
   line-height:1.55;
 }
 .btv3-upper-grid{
@@ -5604,14 +5604,15 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 @media (max-width:1024px){
   .btv3-fv-cta__inner{
     width:min(940px,calc(100% - 40px));
+    min-height:0;
     grid-template-columns:1fr 1fr;
-    gap:14px 18px;
-    padding:16px 0 18px;
+    gap:18px;
+    padding:14px 0;
   }
   .btv3-fv-cta__intro{
-    grid-column:1/-1;
-    justify-content:center;
+    display:none;
   }
+  .btv3-fv-cta__hint{display:none}
   .btv3-fv-cta__badge{
     width:68px;
     height:68px;
