@@ -12,7 +12,7 @@ SECTIONS_DIR = File.join(MODULAR, "sections")
 PREVIEW_DIR = File.join(MODULAR, "preview")
 DOWNLOADS_DIR = File.join(ROOT, "downloads")
 VERSION = File.read(File.join(MODULAR, "VERSION.txt")).strip
-raise "VERSION.txt must start with ver" unless VERSION.match?(/\Aver\d+\z/)
+raise "VERSION.txt must be verNN or verNN-N" unless VERSION.match?(/\Aver\d+(?:-\d+)?\z/)
 
 SECTION_FILES = Dir[File.join(SECTIONS_DIR, "*.html")].sort
 
@@ -41,12 +41,14 @@ def replace_assets(html, mode:, output_dir:)
   end
 end
 
-def html_document(title:, css:, body:, external_css: nil)
+def html_document(title:, css:, body:, external_css: nil, fullbleed: false)
   css_tag = if external_css
               %(<link rel="stylesheet" href="#{external_css}">)
             else
               "<style>\n#{css}\n</style>"
             end
+
+  page_class = fullbleed ? "btv3-page btv3-page--fullbleed" : "btv3-page"
 
   <<~HTML
     <!doctype html>
@@ -58,7 +60,7 @@ def html_document(title:, css:, body:, external_css: nil)
       #{css_tag}
     </head>
     <body>
-    <div class="btv3-page">
+    <div class="#{page_class}">
     #{body}
     </div>
     </body>
@@ -106,7 +108,8 @@ index_html = html_document(
   title: "ぶっ飛びセブ島親子留学｜PC版デザインプレビュー",
   css: "",
   body: index_body,
-  external_css: index_css_path
+  external_css: index_css_path,
+  fullbleed: true
 )
 File.write(File.join(ROOT, "index.html"), index_html)
 
@@ -115,7 +118,8 @@ standalone_body = replace_assets(full_source, mode: :embed, output_dir: DOWNLOAD
 standalone = html_document(
   title: "ぶっ飛びセブ島親子留学｜PC版デザインプレビュー",
   css: css,
-  body: standalone_body
+  body: standalone_body,
+  fullbleed: true
 )
 standalone_name = "#{VERSION}_ぶっ飛びセブ島親子留学_TOP_PC_統合版.html"
 File.write(File.join(DOWNLOADS_DIR, standalone_name), standalone)

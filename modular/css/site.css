@@ -1,4 +1,4 @@
-body{margin:0;background:#fff}
+/* bodyの余白リセットは、SWELLへ持ち込まないようプレビューHTML側で行う。 */
 
 /* ==========================================================
    ぶっ飛びセブ島親子留学 TOP v4
@@ -55,6 +55,15 @@ body{margin:0;background:#fff}
   --btv3-sn-blue:#E3F0FA;
   --btv3-sn-green:#E7F3EB;
   --btv3-sn-cream:#FDF3DC;
+
+  /* 02 計画記事の仮サムネイル */
+  --btv3-plan-time-bg:#e5f2ff;
+  --btv3-plan-time-accent:#0759bd;
+  --btv3-plan-age-bg:#fff1b8;
+  --btv3-plan-age-accent:#795500;
+  --btv3-plan-fit-bg:#dff7f2;
+  --btv3-plan-fit-accent:#087468;
+  --btv3-plan-thumb-text:#102b59;
 }
 
 .btv3-page{
@@ -563,6 +572,82 @@ body{margin:0;background:#fff}
   font-style:normal;
   font-weight:900;
 }
+
+/* 02 「わが家なら？」計画記事：記事制作前の仮サムネイル */
+.btv3-article--pending{
+  cursor:default;
+}
+.btv3-article-thumb{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  overflow:hidden;
+  color:var(--btv3-plan-thumb-text);
+  text-align:center;
+}
+.btv3-article-thumb::after{
+  content:"";
+  position:absolute;
+  right:-9%;
+  bottom:-35%;
+  width:46%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:currentColor;
+  opacity:.08;
+}
+.btv3-article-thumb--time{
+  background:var(--btv3-plan-time-bg);
+  color:var(--btv3-plan-time-accent);
+}
+.btv3-article-thumb--age{
+  background:var(--btv3-plan-age-bg);
+  color:var(--btv3-plan-age-accent);
+}
+.btv3-article-thumb--fit{
+  background:var(--btv3-plan-fit-bg);
+  color:var(--btv3-plan-fit-accent);
+}
+.btv3-article-thumb__number{
+  position:absolute;
+  top:9px;
+  left:11px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  opacity:.72;
+}
+.btv3-article-thumb strong{
+  position:relative;
+  z-index:1;
+  font-size:18px;
+  font-weight:900;
+  line-height:1.4;
+}
+.btv3-article-thumb small{
+  position:relative;
+  z-index:1;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.04em;
+  opacity:.78;
+}
+
+@media (max-width:640px){
+  .btv3-article .btv3-article-thumb{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+  }
+  .btv3-article-thumb strong{
+    font-size:20px;
+  }
+}
 .btv3-small-card > i{
   position:absolute;
   right:10px;
@@ -777,7 +862,6 @@ body{margin:0;background:#fff}
 .btv3-school-banner:hover .btv3-school-banner__button{
   background:#ffd65e;
   transform:translateX(2px);
-}
 }
 
 /* MERIT: ver22で03_merit_band廃止に伴い削除（旧定義はタグver21参照） */
@@ -2096,11 +2180,11 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
   border:6px solid transparent;border-right-color:var(--btv3-sn-gold);
 }
 
-/* ── 縦積みレイアウト（1023px以下）──
-   すごろく盤面（横3行＋カーブ）は1024px以上専用。中間幅（641〜1023px）は
+/* ── 縦積みレイアウト（1200px以下）──
+   すごろく盤面（横3行＋カーブ）は1201px以上専用。中間幅（641〜1200px）は
    カード幅が細りすぎて破綻するため、縦一本道レイアウトに切り替える。
    縦道路は簡易版（左側の滑走路帯＋番号コマが道路上に乗る）。SP本格調整時に磨く。 */
-@media (max-width:1023px){
+@media (max-width:1200px){
   .btv3-rm-board{margin-top:18px;padding-left:0}
   .btv3-rm-board::before{ /* 縦の道路（縁＋路面＋白破線を1要素で描画） */
     content:"";
@@ -2213,8 +2297,8 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
   filter:drop-shadow(0 0 5px rgba(255,196,0,.55));
 }
 
-/* 縦積みレイアウト帯域（1023px以下）では背景モチーフを畳み、リボンを内側へ */
-@media (max-width:1023px){
+/* 縦積みレイアウト帯域（1200px以下）では背景モチーフを畳み、リボンを内側へ */
+@media (max-width:1200px){
   .btv3-rm-bg{display:none}
   .btv3-rm-stop--start::after{right:8px}
   .btv3-rm-stop--goal::after{left:46px;right:14px}
@@ -5733,4 +5817,1313 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 
 @media (prefers-reduced-motion:reduce){
   .btv3-fv-cta__button{transition:none}
+}
+
+/* ==========================================================
+   02 思い込みぶっ飛ばし帯 2026-07-24
+   ========================================================== */
+:root{
+  --btv3-belief-myth:#667085;
+  --btv3-belief-answer:#20324f;
+  --btv3-belief-topic-bg:#e8f4ff;
+  --btv3-belief-topic-text:#0759bd;
+  --btv3-belief-soon-bg:#f3f5f7;
+  --btv3-belief-soon-border:#d9dfe6;
+  --btv3-belief-soon-text:#7c8796;
+}
+
+.btv3-belief .btv3-line-title{
+  align-items:flex-start;
+  font-size:clamp(17px,1.25vw,20px)!important;
+  line-height:1.45!important;
+  white-space:normal;
+}
+.btv3-belief .btv3-line-title::after{
+  display:none;
+}
+.btv3-belief__lead{
+  margin-bottom:12px!important;
+  font-size:13px;
+  line-height:1.65;
+}
+.btv3-belief-card{
+  min-height:286px;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  padding:15px 12px 13px;
+  border-top:4px solid var(--btv3-blue);
+  text-align:left;
+}
+.btv3-belief-card__topic{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:24px;
+  padding:2px 9px;
+  border-radius:999px;
+  background:var(--btv3-belief-topic-bg);
+  color:var(--btv3-belief-topic-text);
+  font-size:11.5px;
+  font-weight:800;
+  line-height:1.3;
+}
+.btv3-belief-card__label,
+.btv3-belief-card__answer-label{
+  display:block;
+  margin-top:10px;
+  color:var(--btv3-belief-myth);
+  font-size:10.5px;
+  font-weight:700;
+  line-height:1.35;
+}
+.btv3-belief-card__myth{
+  margin:3px 0 0!important;
+  color:var(--btv3-belief-myth)!important;
+  font-size:12.5px!important;
+  font-weight:600;
+  line-height:1.55!important;
+}
+.btv3-belief-card__answer-label{
+  color:var(--btv3-blue);
+}
+.btv3-belief-card__answer{
+  margin:3px 0 0!important;
+  color:var(--btv3-belief-answer)!important;
+  font-size:12.5px!important;
+  font-weight:800;
+  line-height:1.65!important;
+}
+.btv3-belief-card__link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+  margin-top:auto;
+  padding-top:10px;
+  border-top:1px solid var(--btv3-line);
+  color:var(--btv3-blue);
+  font-size:11.5px;
+  font-weight:800;
+  line-height:1.45;
+}
+.btv3-belief-card--link{
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.btv3-belief-card--link:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--btv3-shadow-strong);
+}
+.btv3-belief-card--soon{
+  border-color:var(--btv3-belief-soon-border);
+  border-top-color:var(--btv3-belief-soon-border);
+  background:var(--btv3-belief-soon-bg);
+  box-shadow:none;
+  cursor:default;
+}
+.btv3-belief-card--soon .btv3-belief-card__topic{
+  background:var(--btv3-belief-soon-border);
+  color:var(--btv3-belief-soon-text);
+}
+.btv3-belief-card__link--soon{
+  border-top-color:var(--btv3-belief-soon-border);
+  color:var(--btv3-belief-soon-text);
+  font-weight:700;
+}
+
+@media (min-width:641px) and (max-width:1200px){
+  .btv3-belief-card{
+    min-height:218px;
+    padding:17px 16px 14px;
+  }
+  .btv3-belief-card__myth,
+  .btv3-belief-card__answer{
+    font-size:14px!important;
+  }
+  .btv3-belief-card__link{
+    font-size:13px;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-belief .btv3-line-title{
+    font-size:19px!important;
+  }
+  .btv3-belief__lead{
+    font-size:13.5px;
+  }
+  .btv3-belief-card{
+    min-height:300px;
+    display:flex;
+    padding:18px 17px 16px;
+    text-align:left;
+  }
+  .btv3-belief-card__topic{
+    font-size:12px;
+  }
+  .btv3-belief-card__label,
+  .btv3-belief-card__answer-label{
+    font-size:11.5px;
+  }
+  .btv3-belief-card__myth{
+    font-size:16px!important;
+    line-height:1.6!important;
+  }
+  .btv3-belief-card__answer{
+    font-size:14px!important;
+    line-height:1.75!important;
+  }
+  .btv3-belief-card__link{
+    font-size:13px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .btv3-belief-card--link{transition:none}
+}
+
+/* ==========================================================
+   02 運営者プロフィール拡充＋学校一覧バナー移設 2026-07-24
+   ========================================================== */
+:root{
+  --btv3-profile-bg-start:#fffdf7;
+  --btv3-profile-bg-end:#fff8e8;
+  --btv3-profile-border:#ead9ad;
+  --btv3-profile-soft:#fffdf8;
+  --btv3-profile-soft-blue:#eef7ff;
+  --btv3-profile-heading:#112d5c;
+  --btv3-profile-text:#304058;
+  --btv3-profile-muted:#66748a;
+}
+
+.btv3-upper-grid{
+  grid-template-areas:
+    "recommend popular voice"
+    "banner banner voice";
+  align-items:stretch;
+}
+.btv3-recommend{grid-area:recommend}
+.btv3-popular{grid-area:popular}
+.btv3-voice{grid-area:voice}
+.btv3-school-banner-wrap--in-grid{grid-area:banner}
+
+.btv3-school-banner-wrap--in-grid{
+  min-width:0;
+  padding:0;
+  background:transparent;
+}
+.btv3-school-banner-wrap--in-grid .btv3-school-banner{
+  width:100%;
+  height:100%;
+  min-height:190px;
+}
+.btv3-school-banner-wrap--in-grid .btv3-school-banner__art{
+  object-position:center;
+}
+
+.btv3-voice{
+  min-width:0;
+  height:auto;
+  align-self:start;
+  margin-top:0;
+  display:flex;
+  flex-direction:column;
+  padding:19px 18px 18px;
+  border-color:var(--btv3-profile-border);
+  background:linear-gradient(180deg,var(--btv3-profile-bg-start) 0%,var(--btv3-profile-bg-end) 100%);
+}
+.btv3-profile-role{
+  margin:8px 0 0!important;
+  color:var(--btv3-profile-muted)!important;
+  font-size:13px!important;
+  font-weight:600;
+  line-height:1.55!important;
+}
+.btv3-voice-person{
+  margin-top:12px;
+  padding-top:12px;
+  border-top-color:var(--btv3-profile-border);
+}
+.btv3-voice-person b{
+  font-size:16px;
+  line-height:1.4;
+}
+.btv3-voice-person span{
+  margin-top:2px;
+  font-size:13px;
+  line-height:1.55;
+}
+.btv3-profile-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:12px;
+}
+.btv3-profile-badges span{
+  display:inline-flex;
+  align-items:center;
+  min-height:27px;
+  padding:4px 8px;
+  border:1px solid var(--btv3-line);
+  border-radius:999px;
+  background:var(--btv3-profile-soft-blue);
+  color:var(--btv3-blue);
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35;
+}
+.btv3-voice > .btv3-profile-story{
+  margin:13px 0 0!important;
+  color:var(--btv3-profile-text);
+  font-size:14px;
+  line-height:1.75;
+}
+.btv3-profile-details{
+  display:grid;
+  gap:12px;
+  margin-top:14px;
+}
+.btv3-profile-promises,
+.btv3-profile-timeline{
+  min-width:0;
+  padding:12px;
+  border:1px solid var(--btv3-profile-border);
+  border-radius:11px;
+  background:var(--btv3-profile-soft);
+}
+.btv3-profile-promises h3,
+.btv3-profile-timeline h3{
+  margin:0 0 8px!important;
+  color:var(--btv3-profile-heading);
+  font-size:14px!important;
+  font-weight:800;
+  line-height:1.45!important;
+}
+.btv3-profile-promises li{
+  padding:8px 0;
+  border-top:1px solid var(--btv3-profile-border);
+  color:var(--btv3-profile-text);
+  font-size:13px;
+  line-height:1.65;
+}
+.btv3-profile-promises li:first-child{
+  padding-top:0;
+  border-top:0;
+}
+.btv3-profile-promises li:last-child{
+  padding-bottom:0;
+}
+.btv3-profile-promises b,
+.btv3-profile-promises span{
+  display:block;
+}
+.btv3-profile-promises b{
+  margin-bottom:2px;
+  color:var(--btv3-blue);
+  font-size:13px;
+}
+.btv3-profile-timeline dl{
+  margin:0;
+}
+.btv3-profile-timeline dl > div{
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr);
+  gap:7px;
+  padding:7px 0;
+  border-top:1px solid var(--btv3-profile-border);
+  color:var(--btv3-profile-text);
+  font-size:13px;
+  line-height:1.55;
+}
+.btv3-profile-timeline dl > div:first-child{
+  padding-top:0;
+  border-top:0;
+}
+.btv3-profile-timeline dl > div:last-child{
+  padding-bottom:0;
+}
+.btv3-profile-timeline dt{
+  color:var(--btv3-blue);
+  font-weight:800;
+}
+.btv3-profile-timeline dd{
+  min-width:0;
+  margin:0;
+}
+.btv3-voice .btv3-profile-link{
+  margin-top:13px;
+  padding:10px 11px;
+  border-color:var(--btv3-profile-border);
+  font-size:13.5px;
+  line-height:1.5;
+}
+
+@media (max-width:1200px){
+  .btv3-upper-grid{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+      "recommend"
+      "popular"
+      "banner"
+      "voice";
+  }
+  .btv3-school-banner-wrap--in-grid .btv3-school-banner{
+    min-height:240px;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-profile-details{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .btv3-voice{
+    padding:17px 16px 16px;
+  }
+  .btv3-voice > .btv3-profile-story{
+    font-size:14px;
+  }
+  .btv3-profile-promises li,
+  .btv3-profile-promises b,
+  .btv3-profile-timeline dl > div{
+    font-size:13px;
+  }
+  .btv3-voice .btv3-profile-link{
+    margin-top:13px;
+    font-size:13.5px;
+  }
+  .btv3-school-banner-wrap--in-grid .btv3-school-banner{
+    min-height:var(--btv3-b1-school-sp-height);
+  }
+}
+
+/* 02 思い込みカード：イラスト付きコンパクト版 2026-07-25 */
+.btv3-belief-card{
+  min-height:226px;
+  padding:13px 12px 12px;
+}
+.btv3-belief-card__visual{
+  position:absolute;
+  top:8px;
+  right:9px;
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.btv3-belief-card__visual img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+}
+.btv3-belief-card--soon .btv3-belief-card__visual{
+  opacity:.52;
+  filter:grayscale(.2);
+}
+.btv3-belief-card__myth{
+  margin-top:11px!important;
+  font-size:13px!important;
+  line-height:1.55!important;
+}
+.btv3-belief-card__answer-label{
+  margin-top:8px;
+}
+.btv3-belief-card__answer{
+  margin-top:10px!important;
+  padding-left:8px;
+  border-left:3px solid var(--btv3-blue);
+  font-size:12.25px!important;
+  line-height:1.6!important;
+}
+.btv3-belief-card--soon .btv3-belief-card__answer{
+  border-left-color:var(--btv3-belief-soon-text);
+}
+.btv3-belief-card__link{
+  padding-top:8px;
+}
+
+@media (min-width:1201px) and (max-width:1550px){
+  .btv3-belief-card__visual{
+    display:none;
+  }
+}
+
+@media (min-width:641px) and (max-width:1200px){
+  .btv3-belief-card{
+    min-height:190px;
+    padding:14px 14px 12px;
+  }
+  .btv3-belief-card__visual{
+    width:52px;
+    height:52px;
+  }
+  .btv3-belief-card__myth{
+    font-size:14px!important;
+  }
+  .btv3-belief-card__answer{
+    font-size:13.5px!important;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-belief-card{
+    min-height:238px;
+    padding:15px 16px 14px;
+  }
+  .btv3-belief-card__visual{
+    top:9px;
+    right:13px;
+    width:54px;
+    height:54px;
+  }
+  .btv3-belief-card__myth{
+    margin-top:13px!important;
+    font-size:15px!important;
+  }
+  .btv3-belief-card__answer{
+    font-size:13.5px!important;
+    line-height:1.7!important;
+  }
+}
+
+/* 02 思い込みカード：父アバター＋3色タグ試作 2026-07-25 */
+:root{
+  --btv3-belief-cost-bg:#fff1b8;
+  --btv3-belief-cost-border:#f1cc4b;
+  --btv3-belief-cost-text:#795500;
+  --btv3-belief-safety-bg:#dff7f2;
+  --btv3-belief-safety-border:#8bd8ca;
+  --btv3-belief-safety-text:#087468;
+  --btv3-belief-english-bg:#e5f2ff;
+  --btv3-belief-english-border:#9cc9f3;
+  --btv3-belief-english-text:#0759bd;
+}
+.btv3-belief-card .btv3-belief-card__topic--cost{
+  border:1px solid var(--btv3-belief-cost-border);
+  background:var(--btv3-belief-cost-bg);
+  color:var(--btv3-belief-cost-text);
+}
+.btv3-belief-card .btv3-belief-card__topic--safety{
+  border:1px solid var(--btv3-belief-safety-border);
+  background:var(--btv3-belief-safety-bg);
+  color:var(--btv3-belief-safety-text);
+}
+.btv3-belief-card .btv3-belief-card__topic--english{
+  border:1px solid var(--btv3-belief-english-border);
+  background:var(--btv3-belief-english-bg);
+  color:var(--btv3-belief-english-text);
+}
+.btv3-belief-card__answer-row{
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  gap:8px;
+  align-items:start;
+  margin-top:10px;
+}
+.btv3-belief-card__father{
+  width:32px;
+  height:32px;
+  display:block;
+  overflow:hidden;
+  border:2px solid var(--btv3-fv-cta-white);
+  border-radius:50%;
+  background:var(--btv3-fv-cta-white);
+  box-shadow:0 2px 7px rgba(17,45,92,.16);
+}
+.btv3-belief-card__father img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+.btv3-belief-card__answer-row .btv3-belief-card__answer{
+  margin:0!important;
+  padding-left:0;
+  border-left:0;
+}
+
+/* 02 思い込みカード：匿名の不安＋父の吹き出し案 2026-07-25 */
+:root{
+  --btv3-belief-bubble-bg:#f1f7ff;
+  --btv3-belief-bubble-border:#c5dcf5;
+  --btv3-belief-speaker-bg:#ffffff;
+}
+.btv3-belief-card{
+  min-height:286px;
+}
+.btv3-belief-card--soon{
+  border-color:var(--btv3-line);
+  background:var(--btv3-fv-cta-white);
+  box-shadow:0 8px 22px rgba(0,87,200,.085);
+}
+.btv3-belief-card--cost{border-top-color:var(--btv3-belief-cost-border)}
+.btv3-belief-card--safety{border-top-color:var(--btv3-belief-safety-border)}
+.btv3-belief-card--english{border-top-color:var(--btv3-belief-english-border)}
+.btv3-belief-card__question{
+  min-height:52px;
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr);
+  gap:7px;
+  align-items:center;
+  margin-top:9px;
+}
+.btv3-belief-card__question-visual{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.btv3-belief-card__question-visual img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+}
+.btv3-belief-card__question .btv3-belief-card__myth{
+  margin:0!important;
+}
+.btv3-belief-card__answer-bubble{
+  position:relative;
+  margin-top:12px;
+  padding:15px 9px 9px;
+  border:1px solid var(--btv3-belief-bubble-border);
+  border-radius:10px;
+  background:var(--btv3-belief-bubble-bg);
+}
+.btv3-belief-card__answer-bubble::before{
+  content:"";
+  position:absolute;
+  top:-6px;
+  left:15px;
+  width:10px;
+  height:10px;
+  border-top:1px solid var(--btv3-belief-bubble-border);
+  border-left:1px solid var(--btv3-belief-bubble-border);
+  background:var(--btv3-belief-bubble-bg);
+  transform:rotate(45deg);
+}
+.btv3-belief-card__speaker{
+  position:absolute;
+  top:-10px;
+  left:31px;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  min-height:20px;
+  padding:2px 7px;
+  border:1px solid var(--btv3-belief-bubble-border);
+  border-radius:999px;
+  background:var(--btv3-belief-speaker-bg);
+  color:var(--btv3-blue);
+  font-size:10.5px;
+  font-weight:800;
+  line-height:1.3;
+}
+.btv3-belief-card__answer-bubble .btv3-belief-card__answer{
+  margin:0!important;
+  padding-left:0;
+  border-left:0;
+}
+.btv3-belief-card--soon .btv3-belief-card__question-visual{
+  opacity:1;
+  filter:none;
+}
+
+@media (min-width:641px) and (max-width:1200px){
+  .btv3-belief-card{
+    min-height:244px;
+  }
+  .btv3-belief-card__question{
+    grid-template-columns:52px minmax(0,1fr);
+  }
+  .btv3-belief-card__question-visual{
+    width:52px;
+    height:52px;
+  }
+}
+
+@media (max-width:640px){
+  .btv3-belief-card{
+    min-height:280px;
+  }
+  .btv3-belief-card__question{
+    grid-template-columns:58px minmax(0,1fr);
+    gap:10px;
+  }
+  .btv3-belief-card__question-visual{
+    width:58px;
+    height:58px;
+  }
+  .btv3-belief-card__answer-bubble{
+    padding:17px 11px 10px;
+  }
+  .btv3-belief-card__speaker{
+    font-size:11px;
+  }
+}
+
+/* ==========================================================
+   β：PC文字・行間・余白の役割別調整 2026-08-01
+   α保存版を起点とした比較用。スマホの確定デザインには触れない。
+   ========================================================== */
+:root{
+  --btv3-fs-body:16px;
+  --btv3-fs-lead:16px;
+  --btv3-fs-card-title:17px;
+  --btv3-fs-card-body:15px;
+  --btv3-fs-link:15px;
+  --btv3-fs-note:13px;
+  --btv3-fs-label:12px;
+  --btv3-fs-decorative:11px;
+  --btv3-fs-section-title:clamp(32px,2.15vw,36px);
+  --btv3-lh-body:1.75;
+  --btv3-lh-card:1.7;
+  --btv3-lh-heading:1.35;
+}
+
+.btv3-page [id]{scroll-margin-top:88px}
+
+/* 第1パス：文章中心のブロック。PCの読みやすさと見出し間隔を先に揃える。 */
+@media (min-width:1025px){
+  .btv3-page{font-size:var(--btv3-fs-body);line-height:var(--btv3-lh-body)}
+
+  .btv3-startnavi{
+    padding-top:64px;
+    padding-bottom:32px;
+  }
+  .btv3-startnavi__title{
+    margin-bottom:14px;
+    font-size:clamp(32px,2.3vw,36px);
+    line-height:var(--btv3-lh-heading);
+  }
+  .btv3-startnavi__lead{
+    margin-bottom:42px;
+    font-size:var(--btv3-fs-lead);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-startnavi-card__chara-name{font-size:var(--btv3-fs-label)}
+  .btv3-startnavi-card__voice{min-height:126px}
+  .btv3-startnavi-card__voice-text{
+    font-size:16px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-startnavi-card__who{font-size:var(--btv3-fs-note)}
+  .btv3-startnavi-card__line{
+    font-size:14.5px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-startnavi-card__link{
+    font-size:var(--btv3-fs-link);
+    line-height:1.55;
+  }
+
+  .btv3-real2{
+    padding-top:36px;
+    padding-bottom:32px;
+  }
+  .btv3-section-title{margin-bottom:22px}
+  .btv3-section-title h2{
+    font-size:var(--btv3-fs-section-title)!important;
+    line-height:var(--btv3-lh-heading)!important;
+  }
+  .btv3-section-title p{
+    margin-top:9px!important;
+    font-size:var(--btv3-fs-lead);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-polaroid figcaption{
+    font-size:var(--btv3-fs-label);
+    line-height:1.55;
+  }
+  .btv3-trip-head b{font-size:var(--btv3-fs-card-title);line-height:1.5}
+  .btv3-trip-badge{font-size:var(--btv3-fs-note)}
+  .btv3-trip-list dt{font-size:14px;line-height:1.55}
+  .btv3-trip-list dd{
+    font-size:var(--btv3-fs-card-body);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-trip-cta{margin-top:32px}
+
+  .btv3-chars-header h2{
+    font-size:clamp(32px,2.1vw,35px);
+    line-height:var(--btv3-lh-heading);
+  }
+  .btv3-chars-header p{
+    font-size:var(--btv3-fs-lead);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-chars-copy h3{font-size:19px;line-height:1.45}
+  .btv3-chars-copy p{
+    font-size:var(--btv3-fs-card-body);
+    line-height:var(--btv3-lh-card);
+  }
+
+  .btv3-faq__head p{
+    font-size:var(--btv3-fs-lead);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-faq__question{font-size:var(--btv3-fs-card-title);line-height:1.65}
+  .btv3-faq__lead{font-size:16px!important;line-height:var(--btv3-lh-card)!important}
+  .btv3-faq__body p{
+    font-size:15.5px;
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-faq__related{font-size:var(--btv3-fs-note);line-height:1.65}
+
+  .btv3-finalcta__lead{font-size:var(--btv3-fs-lead);line-height:1.85}
+  .btv3-finalcta__choice-label{font-size:var(--btv3-fs-note)}
+  .btv3-finalcta__choice-title{font-size:clamp(21px,1.8vw,24px)}
+  .btv3-finalcta__choice-description{
+    font-size:var(--btv3-fs-card-body);
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-finalcta__reassurance{font-size:var(--btv3-fs-lead)}
+  .btv3-finalcta__general{font-size:var(--btv3-fs-note)}
+}
+
+/* 02は3カラムが成立するPC幅だけを拡大し、タブレット版はαのまま維持する。 */
+@media (min-width:1201px){
+  .btv3-line-title,
+  .btv3-belief .btv3-line-title{
+    margin-bottom:8px!important;
+    font-size:24px!important;
+    line-height:var(--btv3-lh-heading)!important;
+  }
+  .btv3-block-intro,
+  .btv3-belief__lead{
+    margin-bottom:16px!important;
+    font-size:15px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-belief-card{min-height:318px}
+  .btv3-belief-card__topic{font-size:var(--btv3-fs-note)}
+  .btv3-belief-card__myth{
+    font-size:15px!important;
+    line-height:var(--btv3-lh-card)!important;
+  }
+  .btv3-belief-card__answer{
+    font-size:14.5px!important;
+    line-height:var(--btv3-lh-card)!important;
+  }
+  .btv3-belief-card__speaker{font-size:var(--btv3-fs-label)}
+  .btv3-belief-card__link{font-size:var(--btv3-fs-note);line-height:1.55}
+
+  .btv3-article b{
+    padding:14px 14px 0;
+    font-size:16px;
+    line-height:1.5;
+  }
+  .btv3-article p{
+    margin-top:7px!important;
+    padding:0 14px 44px;
+    font-size:14px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-article-thumb__number,
+  .btv3-article-thumb small{font-size:var(--btv3-fs-decorative)}
+
+  .btv3-profile-role{font-size:13.5px!important;line-height:1.65!important}
+  .btv3-voice-person span{font-size:14px;line-height:1.65}
+  .btv3-profile-badges span{font-size:12.5px}
+  .btv3-voice > .btv3-profile-story{
+    font-size:var(--btv3-fs-card-body);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-voice .btv3-profile-link{font-size:14.5px;line-height:1.6}
+}
+
+/* 第2パスA：06ロードマップ。横盤面が安定する広いPCだけ固定高を使う。 */
+@media (min-width:1201px){
+  #roadmap{
+    padding-top:68px;
+    padding-bottom:54px;
+  }
+  .btv3-rm-board{
+    --btv3-rm-rowh:292px;
+    --btv3-rm-rowh3:220px;
+    --btv3-rm-roadtop:152px;
+    --btv3-rm-roadtop3:88px;
+  }
+  .btv3-rm-stop{
+    min-height:174px;
+    gap:6px;
+    padding:15px 15px 14px;
+  }
+  .btv3-rm-stop__time{font-size:var(--btv3-fs-label);line-height:1.45}
+  .btv3-rm-stop__title{font-size:16px;line-height:1.45}
+  .btv3-rm-stop__desc{
+    font-size:14px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-rm-stop__link{font-size:var(--btv3-fs-note);line-height:1.55}
+  .btv3-rm-detour{width:380px}
+  .btv3-rm-detour__body b{font-size:13.5px;line-height:1.5}
+  .btv3-rm-detour__body span{font-size:12.5px;line-height:1.65}
+  .btv3-rm-father{top:-72px;width:270px}
+  .btv3-rm-father__bubble{font-size:12.5px;line-height:1.6}
+  .btv3-rm-father__bubble b{font-size:var(--btv3-fs-decorative)}
+}
+
+/* 第2パスB：07搭乗券。極小文字は装飾11pxだけを例外として残す。 */
+@media (min-width:1025px){
+  .btv3-period-heading h2{
+    font-size:clamp(32px,2.15vw,35px)!important;
+    line-height:var(--btv3-lh-heading)!important;
+  }
+  .btv3-period-heading p{
+    font-size:var(--btv3-fs-lead);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-ticket-airline,
+  .btv3-ticket-flight{
+    font-size:var(--btv3-fs-decorative);
+    letter-spacing:.08em;
+  }
+  .btv3-ticket-stamp span{font-size:var(--btv3-fs-decorative);letter-spacing:.02em}
+  .btv3-ticket-meters > div > span{font-size:12.5px}
+  .btv3-ticket-meters strong{font-size:var(--btv3-fs-note)}
+  .btv3-ticket-stub{min-height:150px}
+  .btv3-ticket-stub p{
+    font-size:13.5px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-ticket-stub p span{font-size:var(--btv3-fs-label)}
+}
+
+/* 第2パスC：09費用。情報として読む文字は原則12〜15pxへ引き上げる。 */
+@media (min-width:1025px){
+  .btv3-costnav__tab small,
+  .btv3-costcalc__mode-tab small,
+  .btv3-costcalc__base small,
+  .btv3-costcalc__group legend small,
+  .btv3-costcalc__options label > span small,
+  .btv3-costcalc__prices span,
+  .btv3-costcalc__included span,
+  .btv3-costcalc__junior-label,
+  .btv3-costcalc__junior-facts span,
+  .btv3-costcalc__junior-facts small,
+  .btv3-costcalc__junior-action small,
+  .btv3-costnav__points span,
+  .btv3-costnav__receipts-kicker,
+  .btv3-costnav__receipt > p small,
+  .btv3-costnav__receipt em{
+    font-size:var(--btv3-fs-label);
+    line-height:1.55;
+  }
+  .btv3-costcalc__base em,
+  .btv3-costcalc__result-kicker,
+  .btv3-costcalc__result-kicker span,
+  .btv3-costcalc__prices sup,
+  .btv3-costcalc__junior-facts sup,
+  .btv3-costnav__receipt-top span{
+    font-size:var(--btv3-fs-decorative);
+  }
+  .btv3-costcalc__base b,
+  .btv3-costcalc__group legend b{font-size:15.5px;line-height:1.5}
+  .btv3-costcalc__options label > span b{font-size:14px;line-height:1.5}
+  .btv3-costcalc__selected,
+  .btv3-costcalc__included,
+  .btv3-costnav__points b,
+  .btv3-costnav__receipts-intro a{
+    font-size:14px;
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-costcalc__availability,
+  .btv3-costcalc__secondary,
+  .btv3-costcalc__junior-checks li,
+  .btv3-costnav__factors,
+  .btv3-costnav__receipt dl div,
+  .btv3-costnav__disclaimer{
+    font-size:var(--btv3-fs-note);
+    line-height:var(--btv3-lh-card);
+  }
+  .btv3-costcalc__provisional{font-size:var(--btv3-fs-label);line-height:1.65}
+  .btv3-costcalc__junior-copy > p:last-child,
+  .btv3-costnav__receipts-intro > p:last-of-type{
+    font-size:var(--btv3-fs-card-body);
+    line-height:var(--btv3-lh-body);
+  }
+  .btv3-costcalc__junior-facts b,
+  .btv3-costcalc__junior-checks > b{font-size:14px;line-height:1.5}
+  .btv3-costnav__receipt-top b{font-size:16px}
+}
+
+/* β完了パス：表示中の情報文字を役割別の最低基準まで揃える。 */
+@media (min-width:1025px){
+  .btv3-article-thumb small{
+    font-size:var(--btv3-fs-label);
+    line-height:1.55;
+  }
+
+  .btv3-school-banner__eyebrow{
+    font-size:var(--btv3-fs-note);
+    line-height:1.5;
+  }
+  .btv3-school-banner__copy p{
+    font-size:14px;
+    line-height:1.65;
+  }
+  .btv3-school-banner__button{
+    font-size:14px;
+    line-height:1.5;
+  }
+
+  .btv3-rm-detour__body span,
+  .btv3-rm-detour__link{
+    font-size:var(--btv3-fs-note);
+    line-height:1.65;
+  }
+  .btv3-rm-father{width:292px}
+  .btv3-rm-father__bubble{
+    font-size:13.5px;
+    line-height:1.65;
+  }
+  .btv3-rm-father__bubble b{
+    font-size:var(--btv3-fs-label);
+    line-height:1.45;
+  }
+
+  .btv3-ticket-stamp span{
+    font-size:var(--btv3-fs-label);
+    line-height:1.12;
+  }
+
+  .btv3-costcalc__mode-icon,
+  .btv3-costcalc__base > span,
+  .btv3-costcalc__group legend > span,
+  .btv3-costcalc__base em,
+  .btv3-costcalc__result-kicker span,
+  .btv3-costcalc__prices b,
+  .btv3-costcalc__prices sup,
+  .btv3-costcalc__junior-facts sup{
+    font-size:var(--btv3-fs-label);
+  }
+  .btv3-costcalc__result-kicker span,
+  .btv3-costcalc__base em{
+    line-height:1.45;
+  }
+}
+
+/* ==========================================================
+   ver27：02上段の幅配分と「わが家なら？」2記事化
+   PCは思い込み3枚を広げ、SPは2記事を通常の2カラムで表示する。
+   ========================================================== */
+@media (min-width:1201px){
+  .btv3-upper-grid{
+    grid-template-columns:1.58fr 1.12fr .86fr;
+  }
+  .btv3-article-grid--two{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:640px){
+  .btv3-article-grid--two{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:start;
+    gap:10px;
+    margin-right:0;
+    margin-left:0;
+    padding:0;
+    overflow:visible;
+    scroll-padding-inline:0;
+    scroll-snap-type:none;
+    overscroll-behavior-inline:auto;
+  }
+  .btv3-article-grid--two > *{
+    min-width:0;
+    flex:initial;
+    scroll-snap-align:none;
+    scroll-snap-stop:normal;
+  }
+  .btv3-article-grid--two .btv3-article-thumb{
+    height:78px;
+    aspect-ratio:auto;
+    gap:0;
+  }
+  .btv3-article-grid--two .btv3-article-thumb__number{
+    top:6px;
+    left:8px;
+    font-size:10px;
+  }
+  .btv3-article-grid--two .btv3-article-thumb strong{
+    font-size:15px;
+    line-height:1.3;
+  }
+  .btv3-article-grid--two .btv3-article-thumb small{
+    font-size:10px;
+    line-height:1.35;
+  }
+  .btv3-article-grid--two .btv3-article b{
+    padding:11px 10px 0;
+    font-size:14px;
+    line-height:1.5;
+  }
+  .btv3-article-grid--two .btv3-article{
+    align-self:start;
+    height:auto;
+    min-height:0;
+    padding-bottom:36px;
+  }
+  .btv3-article-grid--two .btv3-article p{
+    margin-top:6px!important;
+    padding:0 10px;
+    font-size:12px;
+    line-height:1.65;
+  }
+  .btv3-article-grid--two .btv3-article > i{
+    right:9px;
+    bottom:8px;
+  }
+}
+
+/* ==========================================================
+   ver27-2：PC可読性・ロードマップ密度・SPカード間隔の調整
+   見出し色とリンク色を分離し、装飾カードは内容量に追従させる。
+   ========================================================== */
+:root{
+  --btv3-heading:#14306e;
+}
+
+/* 明るいブルーはリンク・操作要素に限定し、主要見出しは濃紺で統一。 */
+.btv3-line-title,
+.btv3-section-title h2,
+.btv3-chars-header h2,
+.btv3-period-heading h2,
+.btv3-period-heading h2 span,
+.btv3-costnav__head h2,
+.btv3-costnav__head h2 span{
+  color:var(--btv3-heading)!important;
+}
+
+/* PC：思い込みの質問を本文から明確に分け、行間だけを少し詰める。 */
+@media (min-width:1201px){
+  .btv3-belief-card__question .btv3-belief-card__myth{
+    font-weight:700;
+    line-height:1.48!important;
+  }
+}
+
+/* SP：2枚目以降のタグが前カードに重ならない専用スペースを確保。 */
+@media (max-width:680px){
+  .btv3-startnavi-card + .btv3-startnavi-card{
+    margin-top:18px;
+  }
+}
+
+/* 広いPC：ロードマップの情報階層と縦密度を同時に調整。 */
+@media (min-width:1201px){
+  #roadmap{
+    padding-top:62px;
+    padding-bottom:48px;
+    border-top:14px solid #fff;
+    background:linear-gradient(180deg,#e8f5ff 0%,#f2f9ff 22%,#f8fcff 100%);
+    box-shadow:inset 0 1px 0 rgba(135,192,236,.35);
+  }
+  .btv3-rm-board{
+    --btv3-rm-rowh:248px;
+    --btv3-rm-rowh3:196px;
+    --btv3-rm-turnh:94px;
+    --btv3-rm-roadtop:134px;
+    --btv3-rm-roadtop3:78px;
+  }
+  .btv3-rm-row--pad{
+    padding-top:64px;
+  }
+  .btv3-rm-stop{
+    min-height:180px;
+    gap:6px;
+    padding:14px 15px 13px;
+  }
+  .btv3-rm-stop__time{
+    font-size:13px;
+    font-weight:800;
+    line-height:1.4;
+  }
+  .btv3-rm-stop__title{
+    font-size:18px;
+    font-weight:900;
+    line-height:1.38;
+  }
+  .btv3-rm-stop__desc{
+    font-size:14px;
+    line-height:1.62;
+  }
+  .btv3-rm-stop__link{
+    font-size:13px;
+    line-height:1.5;
+  }
+  .btv3-rm-father{
+    top:-64px;
+    width:278px;
+  }
+  .btv3-rm-detour{
+    top:calc(100% + 6px);
+    width:520px;
+    max-width:calc(100% - 120px);
+    padding:7px 13px;
+    gap:10px;
+  }
+  .btv3-rm-detour::before{
+    top:-84px;
+    height:84px;
+  }
+  .btv3-rm-detour__body b{
+    font-size:13.5px;
+    line-height:1.35;
+  }
+  .btv3-rm-detour__body span{
+    font-size:12.5px;
+    line-height:1.45;
+  }
+  .btv3-rm-detour__link{
+    margin-top:1px;
+    font-size:12.5px;
+    line-height:1.4;
+  }
+}
+
+/* 広いPCでは最終CTAを1行、タブレット・SPでは従来どおり2行にする。 */
+@media (min-width:1201px){
+  .btv3-finalcta__intro{
+    max-width:1080px;
+  }
+  .btv3-finalcta__title{
+    font-size:clamp(34px,3.1vw,42px)!important;
+    white-space:nowrap;
+  }
+  .btv3-finalcta__title br{
+    display:none;
+  }
+}
+
+/* ==========================================================
+   ver27-2追加調整：質問・学校CTA・SPキャラクター・区切り余白
+   2026-08-02 再監査後の反映。
+   ========================================================== */
+:root{
+  --btv3-card-title:#111827;
+}
+
+/* 思い込みの質問は記事タイトルと同じ濃色・太さにPC/SP共通で統一。 */
+.btv3-article b,
+.btv3-belief-card__question .btv3-belief-card__myth{
+  color:var(--btv3-card-title)!important;
+}
+.btv3-belief-card__question .btv3-belief-card__myth{
+  font-weight:900!important;
+  line-height:1.48!important;
+}
+@media (max-width:640px){
+  .btv3-belief-card__question .btv3-belief-card__myth{
+    line-height:1.44!important;
+  }
+}
+
+/* 学校一覧はタグではなく、押せるCTAとして見える角丸長方形にする。 */
+.btv3-school-banner__button{
+  min-width:188px;
+  min-height:50px;
+  justify-content:center;
+  padding:11px 24px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--btv3-yellow),#ffd34e);
+  color:var(--btv3-navy)!important;
+  font-size:17px;
+  font-weight:900;
+  line-height:1.4;
+  letter-spacing:.025em;
+  box-shadow:0 5px 0 rgba(111,75,0,.24),0 10px 20px rgba(0,0,0,.18);
+}
+.btv3-school-banner__button > span{
+  font-size:21px;
+  line-height:1;
+}
+@media (max-width:640px){
+  .btv3-school-banner__button{
+    min-width:174px;
+    min-height:46px;
+    padding:10px 19px;
+    border-radius:11px;
+    font-size:16px;
+  }
+}
+@media (max-width:340px){
+  .btv3-school-banner__button{
+    width:100%;
+    min-width:0;
+    max-width:174px;
+    padding:9px 8px;
+    gap:6px;
+    font-size:15px;
+  }
+  .btv3-school-banner__button > span{
+    font-size:18px;
+  }
+}
+
+/* SPの公開中キャラは画像列を少し縮め、カードと本文を必ず画面内に収める。 */
+@media (max-width:600px){
+  .btv3-chars-section{
+    --btv3-chars-inline-pad:16px;
+    --btv3-b2-chars-sp-visual:clamp(96px,28vw,108px);
+  }
+  .btv3-chars-inner,
+  .btv3-chars-grid,
+  .btv3-chars-card,
+  .btv3-chars-copy{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+  .btv3-chars-card--mama,
+  .btv3-chars-card--honki{
+    grid-template-columns:minmax(0,var(--btv3-b2-chars-sp-visual)) minmax(0,1fr);
+  }
+  .btv3-chars-card--mama .btv3-chars-visual,
+  .btv3-chars-card--honki .btv3-chars-visual{
+    width:100%;
+    height:auto;
+    aspect-ratio:1;
+  }
+  .btv3-chars-card--mama .btv3-chars-copy,
+  .btv3-chars-card--honki .btv3-chars-copy{
+    padding:8px 4px 8px 12px;
+  }
+  .btv3-chars-copy h3,
+  .btv3-chars-copy p{
+    overflow-wrap:anywhere;
+  }
+}
+@media (max-width:390px){
+  .btv3-chars-section{
+    --btv3-chars-inline-pad:12px;
+    --btv3-b2-chars-sp-visual:94px;
+  }
+}
+
+/* FAQ最終カードと濃色CTAの間に、背景を保ったまま余白を追加。 */
+.btv3-faq{
+  padding-bottom:96px;
+}
+@media (max-width:760px){
+  .btv3-faq{
+    padding-bottom:76px;
+  }
+}
+@media (max-width:430px){
+  .btv3-faq{
+    padding-bottom:72px;
+  }
+}
+
+/* 再監査で残っていた費用ブロック内の見出しアクセントも濃紺へ統一。 */
+.btv3-costnav__receipts-intro h3 span,
+.btv3-costcalc__junior-copy h3 span{
+  color:var(--btv3-heading)!important;
 }
