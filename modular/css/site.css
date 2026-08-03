@@ -7127,3 +7127,20 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 .btv3-costcalc__junior-copy h3 span{
   color:var(--btv3-heading)!important;
 }
+
+/* ver27確定：キャラクター欄をFAQ後へ移動し、公開中の2人だけを中央配置。 */
+.btv3-chars-grid{
+  width:100%;
+  max-width:660px;
+  margin-right:auto;
+  margin-left:auto;
+  grid-template-columns:repeat(2,minmax(0,310px));
+  justify-content:center;
+}
+
+@media (max-width:600px){
+  .btv3-chars-grid{
+    max-width:480px;
+    grid-template-columns:minmax(0,1fr);
+  }
+}
