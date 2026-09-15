@@ -1,0 +1,42 @@
+/* ==========================================================
+   01 FV：横長バナー画像への差し替え 2026-07-22
+   既存 site.css の末尾に追加する追記パッチ
+   ========================================================== */
+.btv3-top-banner{
+  position:relative;
+  width:100%;
+  margin:0;
+  overflow:hidden;
+  background:var(--btv3-pale);
+}
+
+.btv3-top-banner__picture{
+  display:block;
+  width:100%;
+}
+
+.btv3-top-banner__image{
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+}
+
+.btv3-top-banner__heading{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+@media (max-width:640px){
+  .btv3-top-banner__image{
+    width:100%;
+    height:auto;
+  }
+}

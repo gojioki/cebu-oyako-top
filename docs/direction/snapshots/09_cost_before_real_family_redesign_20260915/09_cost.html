@@ -6,12 +6,6 @@
   stylesheet.rel = 'stylesheet';
   stylesheet.href = '../css/site.css';
   document.head.appendChild(stylesheet);
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('img[src^="{{asset:"]').forEach((image) => {
-      const match = image.getAttribute('src')?.match(/^\{\{asset:([^}]+)\}\}$/);
-      if (match) image.src = `../../${match[1]}`;
-    });
-  });
 })();
 </script>
 <section class="btv3-costnav btv3-costcalc" id="cost" aria-labelledby="btv3-costcalc-title">
@@ -112,64 +106,61 @@
       </div>
     </div>
 
-    <section class="btv3-realcase btv3-realcase--embedded" aria-labelledby="btv3-realcase-title">
-      <div class="btv3-realcase__inner">
-        <div class="btv3-realcase__lead">
-          <div class="btv3-realcase__photos" role="region" tabindex="0" aria-label="斉藤家のセブ滞在写真。狭い画面では横にスクロールできます">
-            <figure class="btv3-realcase__photo btv3-realcase__photo--hero"><img src="{{asset:assets/photos/real/cost_family_airport.jpg}}" alt="出発前の空港で父と息子と乳児が待つ様子"><figcaption>セブへ出発</figcaption></figure>
-            <figure class="btv3-realcase__photo"><img src="{{asset:assets/photos/real/cost_family_condo.jpg}}" alt="外部コンドミニアムで乳児を抱いて過ごす父"><figcaption>外部コンド滞在</figcaption></figure>
-            <figure class="btv3-realcase__photo"><img src="{{asset:assets/photos/real/cost_school_lesson.jpg}}" alt="セブの語学学校で先生とマンツーマン授業を受ける息子"><figcaption>マンツー授業</figcaption></figure>
-            <figure class="btv3-realcase__photo btv3-realcase__photo--jollibee"><img src="{{asset:assets/photos/real/cost_jollibee.jpg}}" alt="セブのジョリビーでキャラクターと写真を撮る息子"><figcaption>ジョリビーで休日</figcaption></figure>
-          </div>
+    <section class="btv3-costnav__receipts btv3-costcalc__receipts" aria-labelledby="btv3-costcalc-receipts-title">
+      <div class="btv3-costnav__receipts-intro">
+        <p class="btv3-costnav__receipts-kicker">REAL FAMILY COSTS</p>
+        <h3 id="btv3-costcalc-receipts-title">標準モデルだけでは分からない、<br><span>4人家族のリアル。</span></h3>
+        <p>大人2名・子ども1名・幼児1名。外部コンドミニアムで実際に過ごした3回分です。</p>
+        <a href="https://cebu-oyako.com/cebu-ryugaku-cost-1month/">請求書ベースの実費を見る <span aria-hidden="true">›</span></a>
+      </div>
 
-          <div class="btv3-realcase__copy">
-            <p class="btv3-realcase__eyebrow">REAL COST CASE / 斉藤家の実費</p>
-            <h3 id="btv3-realcase-title">4人家族、子ども1人受講。<br><strong>実費は1回<span class="btv3-realcase__price-nowrap">約65〜97万円。</span></strong></h3>
-            <ul class="btv3-realcase__condition">
-              <li>父・母・小学生・乳児</li><li>子ども1人だけ受講</li><li>外部コンドから通学</li>
-            </ul>
-            <div class="btv3-realcase__summary">
-              <div><small>3回分の実費合計</small><strong>255万5,701円</strong><span>航空券・授業・宿泊・生活費を含む</span></div>
-              <div><small>いちばん大きかった費目</small><strong>宿泊・光熱費 45%</strong><span>3回合計114万2,000円</span></div>
-            </div>
-            <p class="btv3-realcase__insight"><span aria-hidden="true">💡</span><span>外部コンドは自由度が高い一方、<b>家族4人では宿泊費が最大の費目</b>。毎日の送迎にも手間がかかりました。</span></p>
+      <div class="btv3-costnav__slider" data-costnav-slider>
+        <div class="btv3-costnav__slide btv3-is-active" data-costnav-slide="0">
+          <div class="btv3-costnav__receipt">
+            <div class="btv3-costnav__receipt-top"><span>TRIP 01</span><b>GW・16日間</b></div>
+            <dl>
+              <div><dt>家族構成</dt><dd>大人2・子ども1・幼児1</dd></div>
+              <div><dt>子どもの授業</dt><dd>9日間・1日4時間</dd></div>
+              <div><dt>滞在</dt><dd>外部コンドミニアム</dd></div>
+            </dl>
+            <p><small>家族の総額</small><strong>約65万円</strong></p>
+            <em>短期のため授業1時間あたりは高め</em>
+          </div>
+        </div>
+        <div class="btv3-costnav__slide" data-costnav-slide="1" hidden>
+          <div class="btv3-costnav__receipt">
+            <div class="btv3-costnav__receipt-top"><span>TRIP 02</span><b>夏・30日間</b></div>
+            <dl>
+              <div><dt>家族構成</dt><dd>大人2・子ども1・幼児1</dd></div>
+              <div><dt>子どもの授業</dt><dd>24日間・1日4時間</dd></div>
+              <div><dt>滞在</dt><dd>ペントハウス</dd></div>
+            </dl>
+            <p><small>家族の総額</small><strong>約93.2万円</strong></p>
+            <em>1か月留学の費用構造が分かる回</em>
+          </div>
+        </div>
+        <div class="btv3-costnav__slide" data-costnav-slide="2" hidden>
+          <div class="btv3-costnav__receipt">
+            <div class="btv3-costnav__receipt-top"><span>TRIP 03</span><b>年末年始・31日間</b></div>
+            <dl>
+              <div><dt>家族構成</dt><dd>大人2・子ども1・幼児1</dd></div>
+              <div><dt>子どもの授業</dt><dd>25日間・1日4時間</dd></div>
+              <div><dt>滞在</dt><dd>ペントハウス</dd></div>
+            </dl>
+            <p><small>家族の総額</small><strong>約97.3万円</strong></p>
+            <em>繁忙期＋高グレードの部屋を利用</em>
           </div>
         </div>
 
-        <div class="btv3-realcase__compare">
-          <div class="btv3-realcase__compare-head">
-            <h4>3回の費用を、<br class="btv3-realcase__mobile-break">同じ4項目で比較</h4>
-            <p>丸めた概算ではなく、本人記録の実額です。</p>
+        <div class="btv3-costnav__slider-nav">
+          <button type="button" data-costnav-prev aria-label="前の実費を見る">‹</button>
+          <div class="btv3-costnav__dots" role="group" aria-label="実費データを選ぶ">
+            <button class="btv3-is-active" type="button" data-costnav-dot="0" aria-label="GWの実費" aria-current="true"></button>
+            <button type="button" data-costnav-dot="1" aria-label="夏の実費" aria-current="false"></button>
+            <button type="button" data-costnav-dot="2" aria-label="年末年始の実費" aria-current="false"></button>
           </div>
-          <ul class="btv3-realcase__legend">
-            <li class="btv3-realcase__tone btv3-realcase__tone--travel"><i></i>航空券</li><li class="btv3-realcase__tone btv3-realcase__tone--school"><i></i>授業・学校食</li><li class="btv3-realcase__tone btv3-realcase__tone--stay"><i></i>宿泊・光熱費</li><li class="btv3-realcase__tone btv3-realcase__tone--life"><i></i>生活費</li>
-          </ul>
-          <div class="btv3-realcase__trips" role="region" tabindex="0" aria-label="3回分の実費。狭い画面では横にスクロールできます">
-            <article class="btv3-realcase__trip">
-              <header class="btv3-realcase__trip-head"><span>TRIP 01</span><b>GW・16日間</b></header>
-              <div class="btv3-realcase__trip-main"><small>家族の総額</small><p class="btv3-realcase__trip-total"><strong>650,856</strong><span>円</span></p>
-                <div class="btv3-realcase__bar" aria-label="1回目の費用構成"><i class="btv3-realcase__tone--travel" style="flex-grow:219650"></i><i class="btv3-realcase__tone--school" style="flex-grow:109206"></i><i class="btv3-realcase__tone--stay" style="flex-grow:234000"></i><i class="btv3-realcase__tone--life" style="flex-grow:88000"></i></div>
-                <dl class="btv3-realcase__costs"><div class="btv3-realcase__tone--travel"><dt>航空券</dt><dd>219,650円</dd></div><div class="btv3-realcase__tone--school"><dt>授業・学校食</dt><dd>109,206円</dd></div><div class="btv3-realcase__tone--stay"><dt>宿泊・光熱費</dt><dd>234,000円</dd></div><div class="btv3-realcase__tone--life"><dt>生活費</dt><dd>88,000円</dd></div></dl>
-              </div>
-            </article>
-            <article class="btv3-realcase__trip">
-              <header class="btv3-realcase__trip-head"><span>TRIP 02</span><b>夏・30日間</b></header>
-              <div class="btv3-realcase__trip-main"><small>家族の総額</small><p class="btv3-realcase__trip-total"><strong>931,741</strong><span>円</span></p>
-                <div class="btv3-realcase__bar" aria-label="2回目の費用構成"><i class="btv3-realcase__tone--travel" style="flex-grow:192880"></i><i class="btv3-realcase__tone--school" style="flex-grow:145861"></i><i class="btv3-realcase__tone--stay" style="flex-grow:431000"></i><i class="btv3-realcase__tone--life" style="flex-grow:162000"></i></div>
-                <dl class="btv3-realcase__costs"><div class="btv3-realcase__tone--travel"><dt>航空券</dt><dd>192,880円</dd></div><div class="btv3-realcase__tone--school"><dt>授業・学校食</dt><dd>145,861円</dd></div><div class="btv3-realcase__tone--stay"><dt>宿泊・光熱費</dt><dd>431,000円</dd></div><div class="btv3-realcase__tone--life"><dt>生活費</dt><dd>162,000円</dd></div></dl>
-              </div>
-            </article>
-            <article class="btv3-realcase__trip">
-              <header class="btv3-realcase__trip-head"><span>TRIP 03</span><b>年末年始・31日間</b></header>
-              <div class="btv3-realcase__trip-main"><small>家族の総額</small><p class="btv3-realcase__trip-total"><strong>973,104</strong><span>円</span></p>
-                <div class="btv3-realcase__bar" aria-label="3回目の費用構成"><i class="btv3-realcase__tone--travel" style="flex-grow:187900"></i><i class="btv3-realcase__tone--school" style="flex-grow:139204"></i><i class="btv3-realcase__tone--stay" style="flex-grow:477000"></i><i class="btv3-realcase__tone--life" style="flex-grow:169000"></i></div>
-                <dl class="btv3-realcase__costs"><div class="btv3-realcase__tone--travel"><dt>航空券</dt><dd>187,900円</dd></div><div class="btv3-realcase__tone--school"><dt>授業・学校食</dt><dd>139,204円</dd></div><div class="btv3-realcase__tone--stay"><dt>宿泊・光熱費</dt><dd>477,000円</dd></div><div class="btv3-realcase__tone--life"><dt>生活費</dt><dd>169,000円</dd></div></dl>
-              </div>
-            </article>
-          </div>
+          <button type="button" data-costnav-next aria-label="次の実費を見る">›</button>
         </div>
-
-        <div class="btv3-realcase__footer"><p><b>学校寮の標準モデルとは条件が違います。</b><br>外部コンドに家族4人で住み、子ども1人だけ通学した斉藤家の実例です。</p><span class="btv3-realcase__cta btv3-realcase__cta--disabled" aria-disabled="true">3回分の詳しい実費へ（予定）</span></div>
       </div>
     </section>
 
@@ -252,5 +243,24 @@
     updateEstimate(form);
   });
 
+  const slides = [...root.querySelectorAll('[data-costnav-slide]')];
+  const dots = [...root.querySelectorAll('[data-costnav-dot]')];
+  let current = 0;
+  const activateSlide = (index) => {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === current;
+      slide.classList.toggle('btv3-is-active', active);
+      slide.hidden = !active;
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === current;
+      dot.classList.toggle('btv3-is-active', active);
+      dot.setAttribute('aria-current', String(active));
+    });
+  };
+  root.querySelector('[data-costnav-prev]')?.addEventListener('click', () => activateSlide(current - 1));
+  root.querySelector('[data-costnav-next]')?.addEventListener('click', () => activateSlide(current + 1));
+  dots.forEach((dot) => dot.addEventListener('click', () => activateSlide(Number(dot.dataset.costnavDot))));
 })();
 </script>

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "savedAt": "2026-09-15",
+  "currency": "JPY",
+  "unit": "万円",
+  "parentChildEstimate": {
+    "status": "adopted_for_section_preview",
+    "family": {
+      "parentCount": 1,
+      "childCount": 1
+    },
+    "stay": "学校内または学校提携の2人部屋",
+    "included": [
+      "学校費用（授業・2人部屋・食事）",
+      "渡航費（航空券・海外旅行保険2人分）",
+      "学校現地費用（SSP等）"
+    ],
+    "excluded": [
+      "現地での生活費",
+      "観光",
+      "個人的な支出"
+    ],
+    "assumptions": {
+      "travelPerPersonManYen": 10,
+      "travelPeople": 2,
+      "localSchoolFeePerStudentManYen": 3.5
+    },
+    "plans": [
+      { "weeks": 1, "parentLesson": true,  "school": 24, "travel": 20, "local": 7,   "total": 51 },
+      { "weeks": 2, "parentLesson": true,  "school": 36, "travel": 20, "local": 7,   "total": 63 },
+      { "weeks": 4, "parentLesson": true,  "school": 59, "travel": 20, "local": 7,   "total": 86 },
+      { "weeks": 1, "parentLesson": false, "school": 17, "travel": 20, "local": 3.5, "total": 40.5 },
+      { "weeks": 2, "parentLesson": false, "school": 27, "travel": 20, "local": 3.5, "total": 50.5 },
+      { "weeks": 4, "parentLesson": false, "school": 46, "travel": 20, "local": 3.5, "total": 69.5 }
+    ],
+    "evidence": {
+      "schoolCosts": "spreadsheet_aligned",
+      "travelAndLocalAssumptions": "owner_confirmed_2026-09-15",
+      "liveMarketPrice": "requires_recheck_before_publication"
+    }
+  },
+  "juniorCamp": {
+    "status": "provisional_not_for_firm_price_publication",
+    "plans": [
+      { "weeks": 1, "min": 35, "max": 45, "evidence": "historical_proposal_not_independently_verified" },
+      { "weeks": 2, "min": 45, "max": 60, "evidence": "supported_by_local_reference_but_current_offering_requires_recheck" }
+    ]
+  },
+  "realFamilyCases": {
+    "status": "owner_recorded_actuals_not_receipt_independently_verified",
+    "family": "父・母・小学生・乳児",
+    "studentCount": 1,
+    "stay": "外部コンドミニアム",
+    "trips": [
+      { "id": "TRIP 01", "period": "GW・16日間",       "airfare": 219650, "schoolAndMeals": 109206, "stayAndUtilities": 234000, "living": 88000,  "total": 650856 },
+      { "id": "TRIP 02", "period": "夏・30日間",       "airfare": 192880, "schoolAndMeals": 145861, "stayAndUtilities": 431000, "living": 162000, "total": 931741 },
+      { "id": "TRIP 03", "period": "年末年始・31日間", "airfare": 187900, "schoolAndMeals": 139204, "stayAndUtilities": 477000, "living": 169000, "total": 973104 }
+    ],
+    "totals": {
+      "airfare": 600430,
+      "schoolAndMeals": 394271,
+      "stayAndUtilities": 1142000,
+      "living": 419000,
+      "grandTotal": 2555701,
+      "stayAndUtilitiesPercentRounded": 45
+    }
+  },
+  "sources": [
+    "docs/direction/02_PRICE_SOURCE_OF_TRUTH.md",
+    "docs/direction/sources/セブ島親子留学_学校料金表.xlsx",
+    "docs/direction/sources/セブ島親子留学_学校費用妥当性_親1子1.xlsx",
+    "docs/direction/sources/cebu-family-study-cost-complete-guide-preview-2026-09-01.html",
+    "modular/sections/09_cost.html"
+  ]
+}

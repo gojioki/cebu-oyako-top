@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>375px確認｜4人家族の実費ケーススタディ</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;padding:24px;background:#dfe5eb;text-align:center}
+    iframe{display:block;width:375px;height:1200px;margin:auto;border:0;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.18)}
+  </style>
+</head>
+<body>
+  <iframe id="preview" src="preview.html" title="375pxスマホ表示確認"></iframe>
+  <script>
+    document.getElementById('preview').addEventListener('load', function () {
+      if (new URLSearchParams(location.search).get('focus') === 'photos') {
+        this.contentWindow.scrollTo(0, 650);
+      }
+    });
+  </script>
+</body>
+</html>
