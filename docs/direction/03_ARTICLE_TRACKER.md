@@ -1,6 +1,6 @@
 # TOP順の記事進捗台帳
 
-基準日：2026-09-15
+基準日：2026-09-16
 管理軸：`証拠区分`、`原稿状態`、`公開状態` を分ける。公開ページが存在しても、手元に原稿実体があるとは限らない。
 
 2026-09-15の再監査では、Git正本、記事制作プロジェクトの保存ファイル、9月12日transfer bundleを検索した。記事原稿として回収できたのは #3費用完全ガイドのHTMLのみ。#2・#4〜#7・#15は、進捗台帳と会話に状態報告があるだけで、照合可能な原稿ファイルを確認できなかった。
@@ -22,17 +22,19 @@
 
 2026-09-15にURLの到達可否を読み取り確認した。`公開` はページが存在する意味で、内容承認や最新版反映を意味しない。
 
+> 2026-09-16方針変更：既存記事は原則リライト対象のため、TOP上の外部記事導線はサイト名のホームリンクを除き、公開済みURLもいったん非リンクの「（予定）」表示にする。下表の公開状態は記事そのものの所在確認として保持する。
+
 | TOP内の役割 | URL | 公開状態 | 内容上の注意 |
 |---|---|---|---|
 | 親子留学中心ガイド | `https://cebu-oyako.com/oyako-ryugaku/` | 公開 | 旧料金条件・旧数字が残る |
 | 3回の体験 | `https://cebu-oyako.com/oyako-3times/` | 公開 | #2原稿未回収。公開ページ以外の版は判定不能 |
 | 費用ガイド | `https://cebu-oyako.com/cost-guide/` | 公開 | #3の9月改訂案反映前とみられる |
 | 親子向け学校 | `https://cebu-oyako.com/oyako-school/` | 公開 | 現在は記事。将来の条件別比較ページとは別物 |
-| 学校一覧 | `https://cebu-oyako.com/category/school-list/` | 公開 | 2026-09-15にHTTP 200を確認し、TOPバナーを修正 |
-| TOEIC体験 | `https://cebu-oyako.com/toeic-300-to-900/` | 公開 | AGENTSの運営者名ルールとの表記統一を確認 |
-| おすすめしないケース | `https://cebu-oyako.com/philippines-ryugaku-osusume-shinai/` | 公開 | TOP前半で使用中 |
-| 1か月実費 | `https://cebu-oyako.com/cebu-ryugaku-cost-1month/` | 要確認 | 読み取りツールで到達判定できず。TOP実費CTAのため手動確認 |
-| セブ島留学ガイド | `https://cebu-oyako.com/cebu-ryugaku/` | 公開 | 最終CTAで使用中 |
+| 学校一覧 | `https://cebu-oyako.com/category/school-list/` | 公開 | 2026-09-15にHTTP 200を確認。ただしTOPで約束する条件別比較とは内容が異なるため、2026-09-16にTOP導線は「（予定）」へ一時変更 |
+| TOEIC体験 | `https://cebu-oyako.com/toeic-300-to-900/` | 公開 | AGENTSの運営者名ルールとの表記統一を確認。TOP導線は一時的に予定表示 |
+| おすすめしないケース | `https://cebu-oyako.com/philippines-ryugaku-osusume-shinai/` | 公開 | TOP導線は一時的に予定表示 |
+| 1か月実費 | `https://cebu-oyako.com/cebu-ryugaku-cost-1month/` | 要確認 | 読み取りツールで到達判定できず。TOP実費CTAは予定表示 |
+| セブ島留学ガイド | `https://cebu-oyako.com/cebu-ryugaku/` | 公開 | TOP最終CTAは一時的に予定表示 |
 
 ## 06_stepsの未公開導線
 

@@ -123,7 +123,8 @@
 .btv3-header{
   height:70px;
   background:rgba(255,255,255,.98);
-  box-shadow:0 3px 16px rgba(0,65,130,.075);
+  border-bottom:1px solid #e4eaf2;
+  box-shadow:0 3px 14px rgba(13,52,105,.055);
   position:relative;
   z-index:50;
 }
@@ -131,7 +132,7 @@
   height:70px;
   display:flex;
   align-items:center;
-  gap:34px;
+  gap:28px;
 }
 .btv3-brand{
   display:flex;
@@ -149,12 +150,50 @@
   margin-left:auto;
   display:flex;
   align-items:center;
-  gap:39px;
+  gap:0;
   font-size:15px;
   font-weight:900;
   color:#111827;
 }
+.btv3-nav a{
+  position:relative;
+  padding:2px 18px;
+  line-height:1.55;
+  white-space:nowrap;
+}
+.btv3-nav a + a{
+  border-left:1px solid #c5ceda;
+}
 .btv3-nav a:hover{color:var(--btv3-blue)}
+.btv3-header-trust{
+  flex:0 0 auto;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:6px 14px 6px 10px;
+  border:1px solid #cfe3f5;
+  border-radius:999px;
+  color:#153562;
+  background:linear-gradient(135deg,#f4fbff,#eaf6ff);
+  box-shadow:0 4px 12px rgba(15,91,166,.08);
+}
+.btv3-header-trust > span{
+  width:26px;
+  height:26px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  background:linear-gradient(135deg,var(--btv3-yellow),var(--btv3-orange));
+  font-size:14px;
+  font-weight:800;
+  line-height:1;
+}
+.btv3-header-trust p{margin:0!important;line-height:1.18!important;white-space:nowrap}
+.btv3-header-trust b{display:block;color:var(--btv3-blue);font-size:12.5px;font-weight:700}
+.btv3-header-trust small{display:block;margin-top:2px;color:#52657e;font-size:10.5px;font-weight:600;letter-spacing:.02em}
 .btv3-header-cta{
   height:44px;
   min-width:168px;
@@ -1558,14 +1597,20 @@
 .btv3-hero-title{
   font-family:"Noto Sans JP","Yu Gothic","游ゴシック体","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
 }
+.btv3-header,
+.btv3-header a{
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;
+  font-feature-settings:"palt" 1;
+}
 .btv3-brand{
   font-size:24px;
   font-weight:700;
-  letter-spacing:.015em;
+  letter-spacing:.01em;
 }
 .btv3-nav{
   font-weight:600;
-  letter-spacing:.025em;
+  letter-spacing:.035em;
+  color:#132343;
 }
 .btv3-header-cta{font-weight:700}
 .btv3-btn{font-weight:700}
@@ -3011,6 +3056,10 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 .btv3-costnav__cta span{font-size:24px;line-height:1}
 .btv3-costnav__cta:hover{transform:translateY(-2px);box-shadow:0 12px 24px var(--btv3-costnav-cta-shadow-hover)}
 .btv3-costnav__cta:focus-visible{outline:3px solid var(--btv3-costnav-focus-30);outline-offset:3px}
+.btv3-costnav__cta--disabled{
+  background:var(--btv3-costcalc-line);box-shadow:none;color:var(--btv3-costcalc-muted)!important;cursor:default;
+}
+.btv3-costnav__cta--disabled:hover{transform:none;box-shadow:none}
 .btv3-costnav__factors{display:flex;align-items:center;justify-content:center;gap:28px;min-height:60px;padding:12px 24px;border-top:1px solid var(--btv3-costnav-line);background:var(--btv3-costnav-factor-bg);color:var(--btv3-costnav-factor-text);font-size:12px;font-weight:700}
 .btv3-costnav__factors > b{color:var(--btv3-costnav-blue)}
 .btv3-costnav__factors span{display:flex;align-items:center;gap:7px}
@@ -3315,7 +3364,7 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
   .btv3-costcalc__mode{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
   .btv3-costcalc__mode-tab{justify-content:center;gap:8px;min-height:72px;padding:8px}
   .btv3-costcalc__mode-icon{flex:none;width:42px;height:42px;font-size:12px}
-  .btv3-costcalc__mode-tab small{font-size:9px}
+  .btv3-costcalc__mode-tab small{font-size:9px;white-space:nowrap}
   .btv3-costcalc__mode-tab b{font-size:12px;white-space:nowrap}
   .btv3-costcalc__choices{padding:24px 17px 28px}
   .btv3-costcalc__base{align-items:center}
@@ -5880,8 +5929,11 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
     border-radius:8px;
   }
   .btv3-header .btv3-nav{
-    gap:clamp(12px,1.7vw,22px);
+    gap:0;
     font-size:14px;
+  }
+  .btv3-header .btv3-nav a{
+    padding-inline:clamp(11px,1.55vw,19px);
   }
   .btv3-header .btv3-header-cta{
     min-width:150px;
@@ -5890,8 +5942,12 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
   }
 }
 
-/* 641〜1040pxはロゴ＋CTA／メニューの2段構成 */
-@media (min-width:641px) and (max-width:1040px){
+@media (max-width:1240px){
+  .btv3-header-trust{display:none}
+}
+
+/* 641〜960pxはロゴ／メニューの2段構成 */
+@media (min-width:641px) and (max-width:960px){
   .btv3-header{
     height:auto;
   }
@@ -5910,12 +5966,15 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
     width:100%;
     margin-left:0;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     overflow:visible;
     padding:6px 0 2px;
     border-top:1px solid #e5edf5;
   }
   .btv3-header .btv3-nav a{
+    flex:1 1 0;
+    padding-inline:10px;
+    text-align:center;
     white-space:nowrap;
   }
 }
@@ -5942,7 +6001,7 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
 }
 
 @media (max-width:640px){
-  /* スマホヘッダー：CTAを外し、ロゴ＋3列メニューへ圧縮 */
+  /* スマホヘッダー：ロゴ＋縦区切り付き1段スクロールメニュー */
   .btv3-header{
     height:auto;
   }
@@ -5973,37 +6032,39 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
     order:3;
     width:calc(100% + 26px);
     margin:0 -13px;
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    display:flex;
+    justify-content:flex-start;
     gap:0;
-    overflow:visible;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
     padding:0;
     border-top:1px solid #e5edf5;
     border-bottom:1px solid #e5edf5;
     background:#fff;
   }
+  .btv3-header .btv3-nav::-webkit-scrollbar{display:none}
   .btv3-header .btv3-nav a{
-    min-width:0;
-    min-height:35px;
+    flex:0 0 auto;
+    min-width:max-content;
+    min-height:38px;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:5px 3px;
+    padding:7px 16px;
     color:#132343;
     font-size:12px;
-    font-weight:700;
+    font-weight:600;
     line-height:1.25;
-    letter-spacing:0;
+    letter-spacing:.025em;
     text-align:center;
     white-space:nowrap;
-    border-right:1px solid #edf2f7;
-    border-bottom:1px solid #edf2f7;
-  }
-  .btv3-header .btv3-nav a:nth-child(3n){
     border-right:0;
-  }
-  .btv3-header .btv3-nav a:nth-child(n+4){
     border-bottom:0;
+  }
+  .btv3-header .btv3-nav a + a{
+    border-left:1px solid #cbd4df;
   }
   .btv3-fv-art__picture{
     aspect-ratio:var(--btv3-fv-art-sp-cropped-ratio);
@@ -7632,8 +7693,8 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
           <div class="btv3-costcalc__junior-facts btv3-costcalc__junior-facts--priced">
             <div><span>対象</span><b>小学生〜高校生</b><small>学校により異なります</small></div>
             <div><span>期間</span><b>1〜2週間中心</b><small>夏休み・春休み</small></div>
-            <div><span>1週間の既存案</span><b>35〜45万円<sup>仮</sup></b><small>料金表との整合確認前</small></div>
-            <div><span>2週間の既存案</span><b>45〜60万円<sup>仮</sup></b><small>料金表との整合確認前</small></div>
+            <div><span>1週間の総額目安</span><b>35〜45万円</b><small>5〜7泊程度</small></div>
+            <div><span>約2週間の総額目安</span><b>45〜60万円</b><small>12〜16日程度</small></div>
           </div>
 
           <div class="btv3-costcalc__junior-checks">
@@ -7646,8 +7707,8 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
           </div>
 
           <div class="btv3-costcalc__junior-action">
-            <a class="btv3-costnav__cta" href="https://cebu-oyako.com/oyako-school/">募集中のキャンプを比較する <span aria-hidden="true">›</span></a>
-            <small>※既存案を保持しています。確定前に募集要項と料金表を照合します。</small>
+            <span class="btv3-costnav__cta btv3-costnav__cta--disabled" aria-disabled="true">ジュニアキャンプ比較へ（予定）</span>
+            <small>※日本発着・引率付き・子ども単独参加を想定。航空券・保険・WEG等の扱いはプランにより異なり、お小遣いは別途です。</small>
           </div>
         </div>
       </div>
@@ -7714,7 +7775,7 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
       </div>
     </section>
 
-    <p class="btv3-costnav__disclaimer">※親子の金額は学校別料金表をもとにした比較用の概算です。渡航時期・為替・学校・部屋条件で変動します。ジュニアの「仮」表示は募集要項との照合前です。</p>
+    <p class="btv3-costnav__disclaimer">※親子の金額は学校別料金表をもとにした比較用の概算です。ジュニアは2026年の公開募集・学校実施情報をもとにした総額目安です。渡航時期・為替・学校・含まれる費用で変動します。</p>
   </div>
 </section>
 

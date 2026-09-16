@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "savedAt": "2026-09-15",
+  "savedAt": "2026-09-16",
   "currency": "JPY",
   "unit": "万円",
   "parentChildEstimate": {
@@ -40,10 +40,10 @@
     }
   },
   "juniorCamp": {
-    "status": "provisional_not_for_firm_price_publication",
+    "status": "confirmed_range_2026-09-16",
     "plans": [
-      { "weeks": 1, "min": 35, "max": 45, "evidence": "historical_proposal_not_independently_verified" },
-      { "weeks": 2, "min": 45, "max": 60, "evidence": "supported_by_local_reference_but_current_offering_requires_recheck" }
+      { "weeks": 1, "min": 35, "max": 45, "evidence": "supported_by_2026_agent_and_school_examples" },
+      { "weeks": 2, "min": 45, "max": 60, "evidence": "supported_by_2026_agent_and_school_examples" }
     ]
   },
   "realFamilyCases": {
@@ -69,6 +69,7 @@
     "docs/direction/02_PRICE_SOURCE_OF_TRUTH.md",
     "docs/direction/sources/セブ島親子留学_学校料金表.xlsx",
     "docs/direction/sources/セブ島親子留学_学校費用妥当性_親1子1.xlsx",
+    "docs/direction/sources/セブ島ジュニアキャンプ_料金根拠_2026.xlsx",
     "docs/direction/sources/cebu-family-study-cost-complete-guide-preview-2026-09-01.html",
     "modular/sections/09_cost.html"
   ]
