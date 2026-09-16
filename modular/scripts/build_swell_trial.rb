@@ -20,6 +20,7 @@ section_files = Dir[File.join(SECTIONS_DIR, "*.html")].sort
 
 def build_body(paths)
   source = paths.map { |path| File.read(path) }.join("\n")
+  source.gsub!(%r{\s*<section class="[^"]*\bbtv3-legacy-fv\b[^"]*"[^>]*>.*?</section>}m, "")
   source.gsub(/\{\{asset:([^}]+)\}\}/) do
     relative_asset = Regexp.last_match(1)
     absolute_asset = File.join(ROOT, relative_asset)
@@ -62,7 +63,7 @@ instructions = <<~TEXT
   4. ビジュアルエディターでカスタムHTMLブロックを1つ作る場合は「#{VERSION}_SWELL試し入稿用_1ファイル.html」のmetaタグを除く中身を貼ります。通常版はSWELL標準ヘッダーを使うため、00_header.htmlを除外しています。
   5. 独自ヘッダーとの比較が必要な場合だけ「#{VERSION}_SWELL試し入稿用_カスタムヘッダー比較用_1ファイル.html」を使います。公開版には両方のヘッダーを同時表示しません。
   6. styleタグが保存時に除去される場合は、CSSファイルを追加CSSまたは子テーマへ入れ、本文HTMLだけを貼り付けます。
-  7. 表示中FVは画像主体で、本文内のH1は非表示の旧FV内にあります。固定ページタイトルを非表示にする場合は、公開前に検索・アクセシビリティ上有効なH1を別途1件設置します。
+  7. 表示中FVは画像主体です。SWELL標準ヘッダーのサイト名「ぶっ飛びセブ島親子留学」を、このページで唯一のH1として使用します。本文側にはH1を追加しません。
   8. 画像は試し入稿用としてGitHub Pagesを参照しています。本番確定時はWordPress側の画像URLへ置換します。
   9. PC・タブレット・スマホ実機で確認し、問題のスクリーンショットをCodexへ共有してください。
 TEXT

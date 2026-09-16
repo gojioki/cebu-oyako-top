@@ -7725,6 +7725,10 @@ a.btv3-rm-stop:hover .btv3-rm-stop__link{color:#17a9d6}
   font-size:11.5px;
 }
 
+.btv3-rm-stop--start::after{
+  font-size:11px;
+}
+
 @media (max-width:1024px){
   .btv3-article-thumb__number,
   .btv3-ticket-airline,

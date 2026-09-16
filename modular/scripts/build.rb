@@ -42,6 +42,10 @@ def replace_assets(html, mode:, output_dir:)
   end
 end
 
+def remove_legacy_sections(html)
+  html.gsub(%r{\s*<section class="[^"]*\bbtv3-legacy-fv\b[^"]*"[^>]*>.*?</section>}m, "")
+end
+
 def html_document(title:, css:, body:, external_css: nil, fullbleed: false)
   css_tag = if external_css
               %(<link rel="stylesheet" href="#{external_css}">)
@@ -78,7 +82,7 @@ header = File.read(File.join(SECTIONS_DIR, "00_header.html"))
 content_sections = SECTION_FILES.reject { |path| File.basename(path) == "00_header.html" }
 
 # FV専用：ヘッダー＋FV＋信頼4カード＋母子留学メッセージだけ。
-fv_source = header + "\n" + File.read(File.join(SECTIONS_DIR, "01_fv_trust_mother.html"))
+fv_source = remove_legacy_sections(header + "\n" + File.read(File.join(SECTIONS_DIR, "01_fv_trust_mother.html")))
 fv_body = replace_assets(fv_source, mode: :local, output_dir: PREVIEW_DIR)
 fv_css_path = "#{Pathname.new(CSS_FILE).relative_path_from(Pathname.new(PREVIEW_DIR))}?v=#{css_cache_key}"
 fv_preview = html_document(
@@ -91,7 +95,7 @@ fv_preview_name = "#{VERSION}_FV専用プレビュー.html"
 File.write(File.join(PREVIEW_DIR, fv_preview_name), fv_preview)
 
 # 全体確認用：画像はローカル参照のため軽量。
-full_source = header + "\n" + content_sections.map { |path| File.read(path) }.join("\n")
+full_source = remove_legacy_sections(header + "\n" + content_sections.map { |path| File.read(path) }.join("\n"))
 full_local_body = replace_assets(full_source, mode: :local, output_dir: PREVIEW_DIR)
 full_local = html_document(
   title: "全体軽量プレビュー｜ぶっ飛びセブ島親子留学",
