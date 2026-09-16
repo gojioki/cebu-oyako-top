@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "base64"
+require "digest"
 require "fileutils"
 require "pathname"
 
@@ -72,13 +73,14 @@ FileUtils.mkdir_p(PREVIEW_DIR)
 FileUtils.mkdir_p(DOWNLOADS_DIR)
 
 css = File.read(CSS_FILE)
+css_cache_key = Digest::SHA256.hexdigest(css)[0, 12]
 header = File.read(File.join(SECTIONS_DIR, "00_header.html"))
 content_sections = SECTION_FILES.reject { |path| File.basename(path) == "00_header.html" }
 
 # FV専用：ヘッダー＋FV＋信頼4カード＋母子留学メッセージだけ。
 fv_source = header + "\n" + File.read(File.join(SECTIONS_DIR, "01_fv_trust_mother.html"))
 fv_body = replace_assets(fv_source, mode: :local, output_dir: PREVIEW_DIR)
-fv_css_path = Pathname.new(CSS_FILE).relative_path_from(Pathname.new(PREVIEW_DIR)).to_s
+fv_css_path = "#{Pathname.new(CSS_FILE).relative_path_from(Pathname.new(PREVIEW_DIR))}?v=#{css_cache_key}"
 fv_preview = html_document(
   title: "FV専用プレビュー｜ぶっ飛びセブ島親子留学",
   css: "",
@@ -103,7 +105,7 @@ File.write(File.join(PREVIEW_DIR, full_preview_name), full_local)
 # GitHub Pages 公開用：ルート index.html。
 # CSS・画像はリポジトリ内をルート相対で参照するため軽量（追跡済みアセットを配信）。
 index_body = replace_assets(full_source, mode: :local, output_dir: ROOT)
-index_css_path = Pathname.new(CSS_FILE).relative_path_from(Pathname.new(ROOT)).to_s
+index_css_path = "#{Pathname.new(CSS_FILE).relative_path_from(Pathname.new(ROOT))}?v=#{css_cache_key}"
 index_html = html_document(
   title: "ぶっ飛びセブ島親子留学｜PC版デザインプレビュー",
   css: "",

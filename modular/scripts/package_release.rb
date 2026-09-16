@@ -38,7 +38,6 @@ Dir.mktmpdir("#{VERSION}-release-") do |tmp|
   FileUtils.cp(File.join(MODULAR, "VERSION.txt"), source_dir)
 
   swell_files = Dir[File.join(DELIVERIES, "#{VERSION}_SWELL試し入稿用_*")]
-  raise "SWELL trial files are missing" if swell_files.empty?
   FileUtils.cp(swell_files, swell_dir)
 
   section_source = Dir[File.join(MODULAR, "sections", "*.html")].map { |path| File.read(path) }.join("\n")
@@ -59,7 +58,7 @@ Dir.mktmpdir("#{VERSION}-release-") do |tmp|
     integrated/  CSS・画像埋め込み済み単体HTML
     source/      セクションHTML・CSS・生成スクリプト
     assets/      現在のトップページで使用している画像
-    swell/       SWELL下書き固定ページへの試し入稿用データ
+    swell/       SWELL試し入稿用データ（生成済みの場合のみ同梱）
 
     GitHub Pages: https://gojioki.github.io/cebu-oyako-top/
   TEXT
