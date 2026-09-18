@@ -11,3 +11,5 @@ modular/preview/ver27-1_*.html
 modular/preview/ver27_*.html
 .claude/settings.local.json
 CLAUDE.local.md
+.wp-backups/
+.wp-rest.local.*
