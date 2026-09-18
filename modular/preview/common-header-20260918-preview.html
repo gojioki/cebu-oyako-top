@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>共通ヘッダー調整案</title>
+  <style>
+    :root{
+      --btv3-header-ink:#243142;
+      --btv3-header-navy:#0a3975;
+      --btv3-header-blue:#075da8;
+      --btv3-header-muted:#60738b;
+      --btv3-header-line:#e4e9ef;
+      --btv3-header-bg:#fff;
+      --btv3-font:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#f4f7fa;color:var(--btv3-header-ink);font-family:var(--btv3-font)}
+    button,a{font:inherit}
+    .btv3-header-demo{
+      position:relative;
+      z-index:2;
+      border-bottom:1px solid var(--btv3-header-line);
+      background:var(--btv3-header-bg);
+      box-shadow:0 2px 8px rgba(24,47,78,.06);
+    }
+    .btv3-header-demo__inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:32px;
+      width:min(1180px,calc(100% - 48px));
+      min-height:82px;
+      margin:auto;
+    }
+    .btv3-header-demo__brand{
+      display:grid;
+      min-width:max-content;
+      color:var(--btv3-header-ink);
+      text-decoration:none;
+    }
+    .btv3-header-demo__name{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:24px;
+      font-weight:800;
+      line-height:1.25;
+      letter-spacing:-.03em;
+    }
+    .btv3-header-demo__beta{
+      display:inline-flex;
+      align-items:center;
+      min-height:20px;
+      padding:1px 7px;
+      border:1px solid #9bc9ee;
+      border-radius:999px;
+      background:#eaf6ff;
+      color:var(--btv3-header-blue);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:0;
+    }
+    .btv3-header-demo__status{
+      margin-top:4px;
+      color:var(--btv3-header-muted);
+      font-size:11px;
+      font-weight:600;
+      line-height:1.4;
+      letter-spacing:.01em;
+    }
+    .btv3-header-demo__nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:29px;
+      margin-left:auto;
+    }
+    .btv3-header-demo__nav a{
+      position:relative;
+      padding:28px 0 25px;
+      color:#263547;
+      font-size:14px;
+      font-weight:700;
+      line-height:1;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btv3-header-demo__nav a::after{
+      content:"";
+      position:absolute;
+      right:0;
+      bottom:17px;
+      left:0;
+      height:2px;
+      border-radius:2px;
+      background:var(--btv3-header-blue);
+      opacity:0;
+      transform:scaleX(.4);
+    }
+    .btv3-header-demo__nav a:hover::after,
+    .btv3-header-demo__nav a:focus-visible::after{opacity:1;transform:scaleX(1)}
+    .btv3-header-demo__mobile-button{display:none}
+    .btv3-header-demo__context{
+      position:relative;
+      overflow:hidden;
+      min-height:560px;
+      background:#d9f4ff;
+    }
+    .btv3-header-demo__context img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    .btv3-header-demo__note{
+      width:min(760px,calc(100% - 40px));
+      margin:28px auto 60px;
+      padding:22px 24px;
+      border:1px solid #dbe4ed;
+      border-radius:16px;
+      background:#fff;
+      box-shadow:0 10px 30px rgba(24,47,78,.08);
+    }
+    .btv3-header-demo__note h1{margin:0 0 10px;font-size:20px;color:var(--btv3-header-navy)}
+    .btv3-header-demo__note p{margin:0;font-size:14px;line-height:1.8}
+
+    @media (max-width:959px){
+      .btv3-header-demo__inner{
+        display:grid;
+        grid-template-columns:44px minmax(0,1fr) 44px;
+        gap:5px;
+        width:100%;
+        min-height:62px;
+        padding:5px 9px;
+      }
+      .btv3-header-demo__brand{
+        justify-self:center;
+        min-width:0;
+        max-width:100%;
+        text-align:center;
+      }
+      .btv3-header-demo__name{justify-content:center;gap:5px;font-size:16px;letter-spacing:-.04em;white-space:nowrap}
+      .btv3-header-demo__beta{min-height:18px;padding:0 5px;font-size:10px}
+      .btv3-header-demo__status{margin-top:2px;font-size:11px;white-space:nowrap}
+      .btv3-header-demo__nav{display:none}
+      .btv3-header-demo__mobile-button{
+        display:grid;
+        place-items:center;
+        width:44px;
+        height:44px;
+        padding:0;
+        border:0;
+        background:transparent;
+        color:#1e2d3d;
+        cursor:pointer;
+      }
+      .btv3-header-demo__mobile-button svg{width:25px;height:25px;stroke:currentColor;stroke-width:1.8;fill:none}
+      .btv3-header-demo__context{min-height:0}
+    }
+
+    @media (max-width:390px){
+      .btv3-header-demo__inner{grid-template-columns:40px minmax(0,1fr) 40px;padding-inline:4px}
+      .btv3-header-demo__mobile-button{width:40px;height:44px}
+      .btv3-header-demo__name{font-size:15px}
+      .btv3-header-demo__status{font-size:11px}
+    }
+  </style>
+</head>
+<body>
+  <header class="btv3-header-demo">
+    <div class="btv3-header-demo__inner">
+      <button class="btv3-header-demo__mobile-button" type="button" aria-label="メニューを開く">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <a class="btv3-header-demo__brand" href="#">
+        <span class="btv3-header-demo__name">ぶっ飛びセブ島親子留学 <span class="btv3-header-demo__beta">β版</span></span>
+        <span class="btv3-header-demo__status">プレオープン中｜順次公開しています</span>
+      </a>
+
+      <nav class="btv3-header-demo__nav" aria-label="メインナビゲーション">
+        <a href="#">親子留学</a>
+        <a href="#">セブ島留学</a>
+        <a href="#">費用・準備</a>
+        <a href="#">体験談</a>
+        <a href="#">学校一覧</a>
+      </nav>
+
+      <button class="btv3-header-demo__mobile-button" type="button" aria-label="サイト内を検索">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="btv3-header-demo__context">
+      <img src="../../assets/fv/buttobi.png" alt="ヘッダー下にトップページのファーストビューが続く表示例">
+    </div>
+    <section class="btv3-header-demo__note">
+      <h1>共通ヘッダー調整案</h1>
+      <p>PCは現在のSWELL標準ヘッダーを維持。スマホ・タブレットではメニューと検索だけを残し、重複していた横並びメニューは表示しません。区切り線やCTAは追加せず、全ページで同じ構造を使用します。</p>
+    </section>
+  </main>
+</body>
+</html>

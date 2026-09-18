@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>費用完全ガイド 改訂稿プレビュー</title>
+  <style>
+    :root {
+      --navy: #12365b;
+      --blue: #1967a3;
+      --ink: #243349;
+      --muted: #657287;
+      --line: #dbe4ec;
+      --soft: #eaf5fb;
+      --cream: #fff9ed;
+    }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f7fbfd 0, #fff 34rem);
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Yu Gothic", sans-serif;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+    .preview-head {
+      padding: 14px 20px;
+      color: #fff;
+      background: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .article {
+      width: 100%;
+      max-width: 960px;
+      min-width: 0;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+      overflow-wrap: anywhere;
+    }
+    .article::before {
+      display: block;
+      margin-bottom: 24px;
+      color: var(--navy);
+      content: "セブ島親子留学の費用完全ガイド";
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: 800;
+      line-height: 1.35;
+      word-break: break-all;
+    }
+    h2 {
+      margin: 64px 0 22px;
+      padding: 15px 18px;
+      color: var(--navy);
+      background: linear-gradient(90deg, var(--soft), transparent);
+      border-left: 5px solid #26a7a7;
+      border-radius: 8px;
+      font-size: clamp(23px, 3.2vw, 30px);
+      line-height: 1.45;
+      word-break: break-all;
+    }
+    h3 {
+      margin: 36px 0 14px;
+      color: var(--blue);
+      font-size: clamp(20px, 2.6vw, 24px);
+      line-height: 1.5;
+    }
+    p { margin: .7em 0 1.3em; }
+    strong { color: #0d4f75; }
+    a { color: #076c9a; text-underline-offset: 3px; }
+    aside {
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: var(--cream);
+      border: 1px solid #f1dfae;
+      border-radius: 12px;
+    }
+    aside p:last-child { margin-bottom: 0; }
+    ul, ol { padding-left: 1.5em; }
+    li { margin: .35em 0; }
+    .table-scroll {
+      width: 100%;
+      max-width: 100%;
+      margin: 24px 0 30px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 14px 40px rgba(26, 58, 88, .08);
+    }
+    table {
+      width: max-content;
+      min-width: 100%;
+      margin: 0;
+      border: 0;
+      border-spacing: 0;
+    }
+    thead { color: #fff; background: var(--navy); }
+    th, td {
+      min-width: 135px;
+      padding: 13px 15px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    tbody th { color: var(--navy); background: #f7fbfd; }
+    tr:last-child > * { border-bottom: 0; }
+    tr > *:last-child { border-right: 0; }
+    .load-error {
+      padding: 24px;
+      color: #8a1c1c;
+      background: #fff0f0;
+      border-radius: 10px;
+    }
+    @media (max-width: 700px) {
+      body { font-size: 16px; }
+      .article { padding: 32px 14px 64px; }
+      h2 { margin-top: 48px; padding: 13px 14px; }
+      th, td { min-width: 125px; padding: 11px 12px; font-size: 14px; }
+      aside { padding: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-head">ローカル確認用・未公開</div>
+  <main id="article" class="article" aria-live="polite"></main>
+  <script>
+    fetch('../../docs/direction/drafts/cost-guide-rewrite-20260918.html')
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.text();
+      })
+      .then((html) => {
+        const article = document.getElementById('article');
+        article.innerHTML = html;
+        article.querySelectorAll('table').forEach((table) => {
+          const scroller = document.createElement('div');
+          scroller.className = 'table-scroll';
+          table.parentNode.insertBefore(scroller, table);
+          scroller.appendChild(table);
+        });
+      })
+      .catch(() => {
+        document.getElementById('article').innerHTML = '<p class="load-error">localhost経由で開いてください。本文ファイルを読み込めませんでした。</p>';
+      });
+  </script>
+</body>
+</html>
